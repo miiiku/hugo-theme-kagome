@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <div class="article-list">
+    {{ range where .Paginator.Pages "Section" "ne" "" }}
+      {{ partial "card/card-article.html" . }}
+    {{ end }}
+  </div>
+
+  {{ partial "pagination.html" . }}
+{{ end }}

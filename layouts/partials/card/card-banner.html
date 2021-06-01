@@ -1,0 +1,76 @@
+<div class="article-section">
+  <section class="section-card card-container">
+    
+    {{ if eq .Kind "taxonomy" }} {{/* 分类 banner */}}
+      {{ with .Site.Params.taxonomy_banner }}
+        <div class="card-cover" style="background-image: url('{{ . }}')"></div>
+      {{ end }}
+      <div class="card-text">
+        <h1 class="section-card--title">{{ .Data.Plural }}</h1>
+        <p class="section-card--row">total {{ len .Data.Terms }}</p>
+      </div>
+    {{ end }}
+
+    {{ if eq .Kind "term" }} {{/* 某一分类下列表 banner */}}
+      {{ with .Site.Params.taxonomy_banner }}
+        <div class="card-cover" style="background-image: url('{{ . }}')"></div>
+      {{ end }}
+      <div class="card-text">
+        <h1 class="section-card--title">{{ .Data.Term }}</h1>
+        <p class="section-card--row">total {{ len .Data.Pages }}</p>
+      </div>
+    {{ end }}
+
+    {{ if eq .Kind "page" }} {{/* 页面 banner */}}
+      {{ with .Params.cover }}
+        <div class="card-cover" style="background-image: url('{{ . }}')"></div>
+      {{ end }}
+      <div class="card-text">
+        <h1 class="section-card--title">{{ .Title }}</h1>
+        
+        {{ if .Section }} {{/* section single page */}}
+          <p class="section-card--row">{{ .Date.Format "2006-01-02 15:04" }}</p>
+          
+          <ul class="section-card--tag">
+            {{ $taxo := "categories" }}
+            {{ with .Param $taxo }}
+              {{ range $index, $director := . }}
+                {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
+                  <li><a href="{{ .Permalink }}">{{ $director }}</a></li>
+                {{- end -}}
+              {{- end -}}
+            {{ end }}
+          </ul>
+
+          <ul class="section-card--tag">
+            {{ $taxo := "tags" }}
+            {{ with .Param $taxo }}
+              {{ range $index, $director := . }}
+                {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
+                  <li><a href="{{ .Permalink }}">{{ $director }}</a></li>
+                {{- end -}}
+              {{- end -}}
+            {{ end }}
+          </ul>
+        {{ else }} {{/* root single page */}}
+          {{ with .Params.desc }}
+            <p class="section-card--row">{{ . }}</p>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{ if eq .Kind "section" }} {{/* 区分 banner */}}
+      {{ with .Params.cover }}
+        <div class="card-cover" style="background-image: url('{{ . }}')"></div>
+      {{ end }}
+      <div class="card-text">
+        <h1 class="section-card--title">{{ .Type }}</h1>
+        <p class="section-card--row">{{ len .RegularPages }} totals</p>
+        {{ with .Params.desc }}
+          <div class="section-card--row">{{ . }}</div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+</div>

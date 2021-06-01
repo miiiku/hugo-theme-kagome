@@ -1,0 +1,10 @@
+<section class="post-paging--item card-container">
+  {{ with .Params.cover }}
+    <div class="card-cover" style="background-image: url('{{ . }}')"></div>
+  {{ end }}
+  <div class="card-text">
+    <h4 class="title">{{ .Title }}</h4>
+    <p class="date">{{ .Date.Format "2006-01-02 15:04" }}</p>
+  </div>
+  <a href="{{ .RelPermalink }}" class="card-link"></a>
+</section>

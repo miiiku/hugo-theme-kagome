@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <!-- {{ partial "card/card-banner.html" . }} -->
+  
+  <div class="single-container">
+    <div class="article-info">
+
+      <div class="article-cover {{ if .Params.cover -}} img {{- end -}}">
+        {{ with .Params.cover }}
+          <div class="article-cover--img"><img class="" src="{{ . }}" alt="{{ . }}"></div>
+        {{ end }}
+        <div class="article-cover--text">
+          <h1 class="text-title">{{ .Title }}</h1>
+          <p class="text-row">{{ .Params.desc }}</p>
+        </div>
+      </div>
+      
+      <div class="article-content markdown-body">
+        {{ .Content }}
+      </div>
+      
+    </div>
+
+    <aside class="widget-info">
+      {{ partial "widget/widget-categories.html" . }}
+
+      {{ partial "widget/widget-tags.html" . }}
+    </aside>
+  </div>
+
+{{ end }}

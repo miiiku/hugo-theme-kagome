@@ -1,0 +1,18 @@
+<div class="article-item {{ .Params.grow }}">
+  <article class="article-card card-container">
+    {{ with .Params.cover }}
+      <div class="card-cover" style="background-image: url('{{ . }}')"></div>
+    {{ end }}
+    <div class="card-text">
+      <h2 class="card-title">{{ .Title }}</h2>
+      <p class="card-time">
+        {{ range .Site.Author }}
+          {{ . }}
+        {{ end }}
+        发布于
+        {{ .Date.Format "2006-01-02 15:04" }}
+      </p>
+    </div>
+    <a class="card-link" href="{{ .Permalink }}"></a>
+  </article>
+</div>

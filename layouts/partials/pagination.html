@@ -1,0 +1,61 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 -}}
+  <div class="pagination-container">
+
+    {{ $pagFirst  := $pag.First }}
+    {{ $pagLast   := $pag.Last }}
+    {{ $isFirst   := eq $pagFirst.PageNumber $pag.PageNumber }}
+    {{ $isLast    := eq $pagLast.PageNumber $pag.PageNumber }}
+
+    <ul class="pagination-list">
+      <li class="page-item"> {{/* prev page */}}
+        {{ if $pag.HasPrev }}
+          <a href="{{ $pag.Prev.URL }}" class="page-link" aria-label="First">ʚ</a>
+        {{ else }}
+          <span>ʚ</span>
+        {{ end }}
+      </li>
+
+      {{ with $pagFirst -}} {{/* first page */}}
+      <li class="page-item">
+        {{ if $isFirst }}
+          <span>{{ .PageNumber }}</span>
+        {{ else }}
+          <a href="{{ .URL }}" class="page-link" aria-label="First">{{ .PageNumber }}</a>
+        {{ end }}
+      </li>
+      {{ end -}}
+
+      {{ if (and (ge $pag.PageNumber 3) (not $isFirst)) }}
+        <li class="page-item"><span>…</span></li>
+      {{ end }}
+
+      {{ if (and (not $isFirst) (not $isLast)) }}
+        <li class="page-item"><span>{{ $pag.PageNumber }}</span></li>
+      {{ end }}
+
+      {{ if (and (le $pag.PageNumber (sub $pag.TotalPages 2)) (not $isLast)) }}
+        <li class="page-item"><span>…</span></li>
+      {{ end }}
+
+
+      {{- with $pag.Last }} {{/* last page */}}
+      <li class="page-item">
+        {{ if $isLast }}
+          <span>{{ .PageNumber }}</span>
+        {{ else }}
+          <a href="{{ .URL }}" class="page-link" aria-label="Last">{{ .PageNumber }}</a>
+        {{ end }}
+      </li>
+      {{- end }}
+
+      <li class="page-item"> {{/* next page */}}
+        {{ if $pag.HasNext }}
+          <a href="{{ $pag.Next.URL }}" class="page-link" aria-label="First">ɞ</a>
+        {{ else }}
+          <span>ɞ</span>
+        {{ end }}
+      </li>
+    </ul>
+  </div>
+{{ end }}

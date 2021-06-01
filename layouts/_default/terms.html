@@ -1,0 +1,27 @@
+{{/* taxonomies 下的某一分类 */}}
+{{/* 模版查找顺序： 分类名称.terms.html > terms.html */}}
+{{/*
+如: 
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+/categories => category.terms.html > terms.html
+/series => series.terms.html > terms.html
+/tags => tag.terms.html > terms.html
+*/}}
+
+{{ define "main" }}
+  {{ partial "card/card-banner.html" . }}
+  
+  <div class="terms-container">
+    <div class="terms-card card-container">
+      {{ range .Pages }}
+        <section class="term-item">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </section>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

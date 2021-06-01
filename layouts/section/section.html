@@ -1,0 +1,12 @@
+{{ define "main" }}
+
+  {{ partial "card/card-banner.html" . }}
+
+  <div class="article-list">
+    {{ range .Paginator.Pages }}
+      {{ partial "card/card-article.html" . }}
+    {{ end }}
+  </div>
+
+  {{ partial "pagination.html" . }}
+{{ end }}

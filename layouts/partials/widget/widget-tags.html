@@ -1,0 +1,12 @@
+<section class="aside-widget widget-tags">
+  <h2 class="widget-title">Tags</h2>
+  <div class="widget-body">
+    <div class="tags-list">
+      {{ range $key, $value := .Site.Taxonomies.tags }}
+        {{ with $.Site.GetPage (printf "/%s/%s" "tags" $key) }}
+          <a href="{{ .Permalink }}" data-count="{{ len $value.Pages }}" >{{ $key }}</a>
+        {{ end }}
+      {{ end }}
+      </div>
+  </div>
+</section>

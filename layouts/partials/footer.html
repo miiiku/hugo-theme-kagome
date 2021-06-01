@@ -1,0 +1,20 @@
+<footer class="footer-container">
+  <p>{{ .Site.Copyright | safeHTML }}</p>
+
+  {{ with .Site.Params.Beian }}
+    <p><a href="http://www.miitbeian.gov.cn" target="_blank">{{ . }}</a></p>
+  {{ end }}
+
+  <p>
+    Powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    Theme - 
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer author">card-block</a>
+  </p>
+
+  <p>
+    <a href="javascript:;" id="theme-light">🌞 浅色</a>
+    <a href="javascript:;" id="theme-dark">🌛 深色</a>
+    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+  </p>
+</footer>

@@ -1,0 +1,28 @@
+
+@mixin block-container ($padding) {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  
+  @if $padding {
+    padding-left: var(--layout-padding-x);
+    padding-right: var(--layout-padding-x);
+  }
+}
+
+@mixin card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  word-break: break-all;
+  padding: 40px 38px 45px;
+  margin: var(--layout-padding-x);
+  box-shadow:  10px 10px 30px #d9d9d9, -10px -10px 30px #ffffff;
+}
+
+@mixin centerBG {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

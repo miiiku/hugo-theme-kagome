@@ -1,0 +1,22 @@
+<section class="aside-widget widget-categories">
+  <h2 class="widget-title">Categories</h2>
+  <div class="widget-body">
+
+    <ul class="categories-list">
+      {{ range $key, $value := .Site.Taxonomies.categories }}
+        <li>
+          {{ with $.Site.GetPage (printf "/%s/%s" "categories" $key) }}
+            <a href="{{ .Permalink }}">{{ $key }}</a>
+          {{ end }}
+          <span>{{ len $value.Pages }}</span>
+        </li>
+      {{ end }}
+    </ul>
+
+    {{ if gt (len .Site.Taxonomies.categories) 6 }}
+      {{ $all_page := $.Site.GetPage (printf "/%s" "categories") }}
+      <a href="{{ $all_page.Permalink }}" class="more-link">show all</a>
+    {{ end }}
+  
+  </div>
+</section>
