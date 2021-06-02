@@ -1,0 +1,10 @@
+<div class="swiper-item">
+  <section class="swiper-card card-container small">
+    <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
+    <div class="card-text">
+      <h4 class="card-text--title">{{ .Title }}</h4>
+      <p class="card-text--row">{{ .Params.desc }}</p>
+    </div>
+    <a href="{{ .RelPermalink }}" class="card-link"></a>
+  </section>
+</div>

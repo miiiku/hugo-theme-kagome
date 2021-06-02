@@ -1,6 +1,10 @@
 {{ define "main" }}
+  {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
+  {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+  {{ $pag := .Paginate ($section) }}
+  
   <div class="article-list">
-    {{ range where .Paginator.Pages "Section" "ne" "" }}
+    {{ range $pag.Pages }}
       {{ partial "card/card-article.html" . }}
     {{ end }}
   </div>

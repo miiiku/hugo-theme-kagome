@@ -3,6 +3,34 @@
   text-align: center;
   padding: 40px 0;
 
+  .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+
+    a {
+      display: block;
+      text-align: center;
+      margin: 10px;
+      width: 45px;
+      height: 45px;
+      padding: 10px;
+      @include soft-box(12px, 4px);
+
+      &:hover svg.icon {
+        fill: #14281d;
+      }
+
+      svg.icon {
+        display: block;
+        fill: #aeacb1;
+        transition: fill 0.3s ease;
+      }
+    }
+  }
+
   p {
     line-height: 1.6;
     margin: 6px 0;

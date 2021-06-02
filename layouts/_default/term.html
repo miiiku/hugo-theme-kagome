@@ -1,7 +1,7 @@
 {{/* 某一分类的文章列表 */}}
 {{ define "main" }}
   {{ partial "card/card-banner.html" . }}
-  
+
   <div class="article-list">
     {{ range .Pages }}
       {{ partial "card/card-article.html" . }}

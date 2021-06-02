@@ -1,18 +1,14 @@
 <div class="article-item {{ .Params.grow }}">
-  <article class="article-card card-container">
-    {{ with .Params.cover }}
-      <div class="card-cover" style="background-image: url('{{ . }}')"></div>
-    {{ end }}
+  <section class="article-card card-container large">
+    <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
     <div class="card-text">
-      <h2 class="card-title">{{ .Title }}</h2>
-      <p class="card-time">
-        {{ range .Site.Author }}
-          {{ . }}
-        {{ end }}
+      <h4 class="card-text--title">{{ .Title }}</h4>
+      <p class="card-text--row">
+        {{ .Site.Author.name  }}
         发布于
         {{ .Date.Format "2006-01-02 15:04" }}
       </p>
     </div>
     <a class="card-link" href="{{ .Permalink }}"></a>
-  </article>
+  </section>
 </div>

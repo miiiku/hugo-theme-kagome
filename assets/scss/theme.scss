@@ -1,0 +1,66 @@
+$light-bg-color: #f0f0f0;
+$light-bg-high: #ffffff;
+$light-bg-shadow: #cccccc;
+
+$light-link-color: #f857a6;
+$light-text-color: #131515;
+$light-low-color: #aeacb1;
+$light-stress-color: #14281D;
+
+
+$dark-bg-color: #c6c6c6;
+$dark-bg-high: #e4e4e4;
+$dark-bg-shadow: #a8a8a8;
+
+$dark-link-color: #f857a6;
+$dark-text-color: #343434;
+$dark-low-color: #747474;
+$dark-stress-color: #212121;
+
+.theme-light {
+  --theme-bg-color: #{$light-bg-color};
+  --theme-bg-high: #{$light-bg-high};
+  --theme-bg-shadow: #{$light-bg-shadow};
+
+  --theme-link-color: #{$light-link-color};
+  --theme-text-color: #{$light-text-color};
+  --theme-low-color: #{$light-low-color};
+  --theme-stress-color: #{$light-stress-color};
+}
+
+.theme-dark {
+  --theme-bg-color: #{$dark-bg-color};
+  --theme-bg-high: #{$dark-bg-high};
+  --theme-bg-shadow: #{$dark-bg-shadow};
+
+  --theme-link-color: #{$dark-link-color};
+  --theme-text-color: #{$dark-text-color};
+  --theme-low-color: #{$dark-low-color};
+  --theme-stress-color: #{$dark-stress-color};
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --theme-bg-color: #{$light-bg-color};
+    --theme-bg-high: #{$light-bg-high};
+    --theme-bg-shadow: #{$light-bg-shadow};
+
+    --theme-link-color: #{$light-link-color};
+    --theme-text-color: #{$light-text-color};
+    --theme-low-color: #{$light-low-color};
+    --theme-stress-color: #{$light-stress-color};
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-bg-color: #{$dark-bg-color};
+    --theme-bg-high: #{$dark-bg-high};
+    --theme-bg-shadow: #{$dark-bg-shadow};
+
+    --theme-link-color: #{$dark-link-color};
+    --theme-text-color: #{$dark-text-color};
+    --theme-low-color: #{$dark-low-color};
+    --theme-stress-color: #{$dark-stress-color};
+  }
+}

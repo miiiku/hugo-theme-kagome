@@ -1,0 +1,233 @@
+/** card common style */
+.card-container {
+  &.large {
+    @include block(true);
+
+    .card-text {
+      .card-text--title {
+        font-size: 30px;
+        font-weight: bolder;
+        line-height: 1.6;
+      }
+  
+      .card-text--row {
+        font-size: 16px;
+        margin-top: 20px;
+      }
+
+      .card-text--tag {
+        display: flex;
+        margin-top: 18px;
+        margin-left: -8px;
+        margin-right: -8px;
+    
+        a {
+          border-radius: 20px;
+          padding: 4px 8px;
+          transition: color 0.3s ease, background-color 0.3s ease;
+          &::before {
+            content: "#";
+            margin-right: 4px;
+          }
+    
+          &:hover {
+            color: var(--theme-active-color);
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  &.small {
+    @include block(false);
+
+    .card-text {
+      .card-text--title {
+        font-size: 20px;
+        font-weight: bolder;
+        line-height: 1.6;
+      }
+  
+      .card-text--row {
+        font-size: 14px;
+        margin-top: 14px;
+      }
+    }
+  }
+
+  &.img {
+    padding: 0;
+
+    .card-cover {
+      position: relative;
+      overflow: hidden;
+
+      > img {
+        display: block;
+        max-width: 100%;
+      }
+    }
+
+    .card-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 38px 45px;
+    }
+  }
+
+  .card-cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: #ff5858;
+    background-image: linear-gradient(1deg, #f857a6, #ff5858);
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      background-image: linear-gradient(234deg, #394245 0%, #000 100%);
+    }
+  }
+
+  .card-text {
+    color: #fff;
+    position: relative;
+  }
+
+  .card-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+  }
+}
+
+/** article section style */
+.article-section {
+  @include block-container(false);
+}
+
+/** terms contaer style */
+.terms-container {
+  @include block-container(false);
+
+  .terms-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ffffff;
+
+    .term-item {
+      margin: calc(var(--layout-padding-x) / 2);
+
+      > a {
+        display: inline-block;
+        padding: 3px 4px;
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: #ffffff;
+          background-color: var(--theme-active-color);
+        }
+      }
+    }
+  }
+}
+
+/** swiper container style */
+.swiper-container {
+  @include block-container(false);
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .swiper-item {
+    width: 25%;
+    flex-basis: 25%;
+    min-width: 25%;
+    scroll-snap-align: center;
+  }
+}
+
+/** article paging style */
+.article-paging {
+  display: flex;
+  flex-wrap: wrap;
+
+  .post-paging--item {
+    color: #ffffff;
+    text-align: center;
+    flex: 1;
+  }
+}
+
+/** article lsit style */
+.article-list {
+  display: flex;
+  flex-wrap: wrap;
+  @include block-container(false);
+
+  .article-card {
+    min-width: 350px;
+    min-height: 370px;
+  }
+
+  .article-item {
+    flex: 1 1 33.33333%;
+
+    &.large {
+      flex: 1 1 66.66666%;
+    }
+
+    &.full {
+      flex: 1 1 100%;
+    }
+
+    &:nth-child(1n) .article-card .card-cover {
+      background-color: #e77842;
+      background-image: linear-gradient(45deg, #e77842, #f7c068);
+    }
+
+    &:nth-child(2n) .article-card .card-cover {
+      background-image: #ff5858;
+      background-image: linear-gradient(1deg, #f857a6, #ff5858);
+    }
+
+    &:nth-child(3n) .article-card .card-cover {
+      background-color: #b53cff;
+      background-image: linear-gradient(20deg, #b53cff, #f952ff);
+    }
+
+    &:nth-child(4n) .article-card .card-cover {
+      background-color: #6bd0ff;
+      background-image: linear-gradient(40deg, #327ae7, #6bd0ff);
+    }
+
+    &:nth-child(5n) .article-card .card-cover {
+      background-color: #ffd62e;
+      background-image: linear-gradient(40deg, #ffb040, #ffd62e);
+    }
+  }
+}

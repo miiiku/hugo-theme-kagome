@@ -1,37 +1,37 @@
 <div class="article-section">
-  <section class="section-card card-container">
+  <section class="section-card card-container large">
     
     {{ if eq .Kind "taxonomy" }} {{/* 分类 banner */}}
-      {{ with .Site.Params.taxonomy_banner }}
-        <div class="card-cover" style="background-image: url('{{ . }}')"></div>
-      {{ end }}
+      <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
       <div class="card-text">
-        <h1 class="section-card--title">{{ .Data.Plural }}</h1>
-        <p class="section-card--row">total {{ len .Data.Terms }}</p>
+        <h1 class="card-text--title">{{ or .Title .Data.Plural }}</h1>
+        {{ with .Params.desc }}
+          <p class="card-text--row">{{ . }}</p>
+        {{ end }}
+        <p class="card-text--row">total {{ len .Data.Terms }}</p>
       </div>
     {{ end }}
 
     {{ if eq .Kind "term" }} {{/* 某一分类下列表 banner */}}
-      {{ with .Site.Params.taxonomy_banner }}
-        <div class="card-cover" style="background-image: url('{{ . }}')"></div>
-      {{ end }}
+      <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
       <div class="card-text">
-        <h1 class="section-card--title">{{ .Data.Term }}</h1>
-        <p class="section-card--row">total {{ len .Data.Pages }}</p>
+        <h1 class="card-text--title">{{ or .Title .Data.Term }}</h1>
+        {{ with .Params.desc }}
+          <p class="card-text--row">{{ . }}</p>
+        {{ end }}
+        <p class="card-text--row">total {{ len .Data.Pages }}</p>
       </div>
     {{ end }}
 
     {{ if eq .Kind "page" }} {{/* 页面 banner */}}
-      {{ with .Params.cover }}
-        <div class="card-cover" style="background-image: url('{{ . }}')"></div>
-      {{ end }}
+      <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
       <div class="card-text">
-        <h1 class="section-card--title">{{ .Title }}</h1>
+        <h1 class="card-text--title">{{ .Title }}</h1>
         
         {{ if .Section }} {{/* section single page */}}
-          <p class="section-card--row">{{ .Date.Format "2006-01-02 15:04" }}</p>
+          <p class="card-text--row">{{ .Date.Format "2006-01-02 15:04" }}</p>
           
-          <ul class="section-card--tag">
+          <ul class="card-text--tag">
             {{ $taxo := "categories" }}
             {{ with .Param $taxo }}
               {{ range $index, $director := . }}
@@ -42,7 +42,7 @@
             {{ end }}
           </ul>
 
-          <ul class="section-card--tag">
+          <ul class="card-text--tag">
             {{ $taxo := "tags" }}
             {{ with .Param $taxo }}
               {{ range $index, $director := . }}
@@ -54,21 +54,29 @@
           </ul>
         {{ else }} {{/* root single page */}}
           {{ with .Params.desc }}
-            <p class="section-card--row">{{ . }}</p>
+            <p class="card-text--row">{{ . }}</p>
           {{ end }}
         {{ end }}
       </div>
     {{ end }}
 
     {{ if eq .Kind "section" }} {{/* 区分 banner */}}
-      {{ with .Params.cover }}
-        <div class="card-cover" style="background-image: url('{{ . }}')"></div>
-      {{ end }}
+      <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
       <div class="card-text">
-        <h1 class="section-card--title">{{ .Type }}</h1>
-        <p class="section-card--row">{{ len .RegularPages }} totals</p>
-        {{ with .Params.desc }}
-          <div class="section-card--row">{{ . }}</div>
+        {{ with .Title }} {{/* title */}}
+          <h1 class="card-text--title">{{ . }}</h1>
+        {{ end }}
+        
+        {{ with .Params.desc }} {{/* desc */}}
+          <div class="card-text--row">{{ . }}</div>
+        {{ end }}
+
+        {{ with len .RegularPages }} {{/* pages */}}
+          <p class="card-text--row">{{ . }} totals</p>
+        {{ end }}
+        
+        {{ with len .Sections }} {{/* children sections */}}
+          <p class="card-text--row">{{ . }} totals children</p>
         {{ end }}
       </div>
     {{ end }}

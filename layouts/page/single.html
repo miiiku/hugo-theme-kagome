@@ -3,21 +3,11 @@
   
   <div class="single-container">
     <div class="article-info">
-
-      <div class="article-cover {{ if .Params.cover -}} img {{- end -}}">
-        {{ with .Params.cover }}
-          <div class="article-cover--img"><img class="" src="{{ . }}" alt="{{ . }}"></div>
-        {{ end }}
-        <div class="article-cover--text">
-          <h1 class="text-title">{{ .Title }}</h1>
-          <p class="text-row">{{ .Params.desc }}</p>
-        </div>
-      </div>
+      {{ partial "card/card-cover.html" . }}
       
       <div class="article-content markdown-body">
         {{ .Content }}
       </div>
-      
     </div>
 
     <aside class="widget-info">

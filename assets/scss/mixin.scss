@@ -11,14 +11,29 @@
   }
 }
 
-@mixin card {
+@mixin block ($isLarge) {
   position: relative;
-  border-radius: 24px;
   overflow: hidden;
   word-break: break-all;
-  padding: 40px 38px 45px;
   margin: var(--layout-padding-x);
-  box-shadow:  10px 10px 30px #d9d9d9, -10px -10px 30px #ffffff;
+
+  @if $isLarge {
+    border-radius: 24px;
+    padding: 40px 38px 46px;
+    @include soft-box(24px, 6px);
+  } @else {
+    border-radius: 12px;
+    padding: 20px 19px 23px;
+    @include soft-box(18px, 4px);
+  }
+}
+
+@mixin soft-box($radius, $size) {
+  overflow: hidden;
+  border-radius: $radius;
+  background-color: var(--theme-bg-color);
+  box-shadow: $size $size $size*2 var(--theme-bg-shadow),
+    (-($size)) (-($size)) $size*2 var(--theme-bg-high);
 }
 
 @mixin centerBG {

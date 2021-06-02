@@ -2,6 +2,14 @@
 
   {{ partial "card/card-banner.html" . }}
 
+  {{ with .Sections }}
+    <div class="swiper-container">
+      {{ range . }}
+        {{ partial "card/card-childer.html" . }}
+      {{ end }}
+    </div>
+  {{ end }}
+
   <div class="article-list">
     {{ range .Paginator.Pages }}
       {{ partial "card/card-article.html" . }}

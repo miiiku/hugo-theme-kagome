@@ -3,37 +3,7 @@
   
   <div class="single-container">
     <div class="article-info">
-      <div class="article-cover {{ if .Params.cover -}} img {{- end -}}">
-        {{ with .Params.cover }}
-          <div class="article-cover--img"><img class="" src="{{ . }}" alt="{{ . }}"></div>
-        {{ end }}
-        <div class="article-cover--text">
-          <h1 class="text-title">{{ .Title }}</h1>
-          <p class="text-row">{{ .Date.Format "2006-01-02 15:04" }}</p>
-          <p>{{ .Type }}</p>
-          <ul class="text-tag">
-            {{ $taxo := "categories" }}
-            {{ with .Param $taxo }}
-              {{ range $index, $director := . }}
-                {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
-                  <li><a href="{{ .Permalink }}">{{ $director }}</a></li>
-                {{- end -}}
-              {{- end -}}
-            {{ end }}
-          </ul>
-
-          <ul class="text-tag">
-            {{ $taxo := "tags" }}
-            {{ with .Param $taxo }}
-              {{ range $index, $director := . }}
-                {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
-                  <li><a href="{{ .Permalink }}">{{ $director }}</a></li>
-                {{- end -}}
-              {{- end -}}
-            {{ end }}
-          </ul>
-        </div>
-      </div>
+      {{ partial "card/card-cover.html" . }}
 
       <div class="article-content markdown-body">
         {{ .Content }}
