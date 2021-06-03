@@ -1,7 +1,10 @@
 :root {
   --layout-max-width: 1200px;
   --layout-padding-x: 20px;
-  --theme-active-color: #f857a6;
+  --font-stress-size: 22px;
+  --font-common-size: 16px;
+  --font-base-size: 14px;
+  --base-font: var(--font-base-size) / 1.8 'Open Sans', sans-serif;
 }
 
 

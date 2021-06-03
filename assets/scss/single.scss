@@ -1,5 +1,5 @@
 .single-container {
-  @include block-container(false);
+  @include block-container;
   display: flex;
   align-items: flex-start;
   overflow: visible;
@@ -10,7 +10,7 @@
   max-width: calc(100% - 360px);
 
   .article-content {
-    @include block(true);
+    @include block-inner;
   }
 }
 

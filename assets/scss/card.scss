@@ -1,59 +1,11 @@
 /** card common style */
 .card-container {
   &.large {
-    @include block(true);
-
-    .card-text {
-      .card-text--title {
-        font-size: 30px;
-        font-weight: bolder;
-        line-height: 1.6;
-      }
-  
-      .card-text--row {
-        font-size: 16px;
-        margin-top: 20px;
-      }
-
-      .card-text--tag {
-        display: flex;
-        margin-top: 18px;
-        margin-left: -8px;
-        margin-right: -8px;
-    
-        a {
-          border-radius: 20px;
-          padding: 4px 8px;
-          transition: color 0.3s ease, background-color 0.3s ease;
-          &::before {
-            content: "#";
-            margin-right: 4px;
-          }
-    
-          &:hover {
-            color: var(--theme-active-color);
-            background-color: #fff;
-          }
-        }
-      }
-    }
+    @include block-inner;
   }
 
   &.small {
-    @include block(false);
-
-    .card-text {
-      .card-text--title {
-        font-size: 20px;
-        font-weight: bolder;
-        line-height: 1.6;
-      }
-  
-      .card-text--row {
-        font-size: 14px;
-        margin-top: 14px;
-      }
-    }
+    @include block-inner(true);
   }
 
   &.img {
@@ -104,8 +56,40 @@
   }
 
   .card-text {
-    color: #fff;
+    color: var(--theme-light-color);
     position: relative;
+
+    .card-text--title {
+      font-size: var(--font-stress-size);
+      font-weight: bolder;
+    }
+
+    .card-text--row {
+      font-size: var(--font-common-size);
+      margin-top: 20px;
+    }
+
+    .card-text--tag {
+      display: flex;
+      margin-top: 18px;
+      margin-left: -8px;
+      margin-right: -8px;
+  
+      a {
+        border-radius: 20px;
+        padding: 4px 8px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        &::before {
+          content: "#";
+          margin-right: 4px;
+        }
+  
+        &:hover {
+          color: var(--theme-active-color);
+          background-color: #fff;
+        }
+      }
+    }
   }
 
   .card-link {
@@ -118,43 +102,9 @@
   }
 }
 
-/** article section style */
-.article-section {
-  @include block-container(false);
-}
-
-/** terms contaer style */
-.terms-container {
-  @include block-container(false);
-
-  .terms-card {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #ffffff;
-
-    .term-item {
-      margin: calc(var(--layout-padding-x) / 2);
-
-      > a {
-        display: inline-block;
-        padding: 3px 4px;
-        border-radius: 4px;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-          color: #ffffff;
-          background-color: var(--theme-active-color);
-        }
-      }
-    }
-  }
-}
-
-/** swiper container style */
-.swiper-container {
-  @include block-container(false);
+/** section swiper style */
+.section-swiper {
+  @include block-container;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x proximity;
@@ -171,23 +121,16 @@
   }
 }
 
-/** article paging style */
-.article-paging {
-  display: flex;
-  flex-wrap: wrap;
-
-  .post-paging--item {
-    color: #ffffff;
-    text-align: center;
-    flex: 1;
-  }
+/** article section style */
+.article-section {
+  @include block-container;
 }
 
 /** article lsit style */
 .article-list {
   display: flex;
   flex-wrap: wrap;
-  @include block-container(false);
+  @include block-container;
 
   .article-card {
     min-width: 350px;
@@ -229,5 +172,17 @@
       background-color: #ffd62e;
       background-image: linear-gradient(40deg, #ffb040, #ffd62e);
     }
+  }
+}
+
+/** article paging style */
+.article-paging {
+  display: flex;
+  flex-wrap: wrap;
+
+  .post-paging--item {
+    color: var(--theme-light-color);
+    text-align: center;
+    flex: 1;
   }
 }

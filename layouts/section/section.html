@@ -3,7 +3,7 @@
   {{ partial "card/card-banner.html" . }}
 
   {{ with .Sections }}
-    <div class="swiper-container">
+    <div class="section-swiper">
       {{ range . }}
         {{ partial "card/card-childer.html" . }}
       {{ end }}

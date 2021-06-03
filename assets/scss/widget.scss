@@ -1,11 +1,10 @@
 .aside-widget {
-  @include block(true);
+  @include block-inner;
 
   .widget-title {
-    font-family: "Montserrat", sans-serif;
+    color: var(--theme-stress-color);
     font-weight: 600;
     font-size: 24px;
-    line-height: 1.8;
     letter-spacing: 0.6px;
     margin-bottom: 20px;
 
@@ -14,7 +13,37 @@
       content: "";
       width: 100%;
       height: 2px;
-      background-color: #F4F4F4;
+      background-color: var(--theme-border-primary);
+    }
+  }
+
+  .widget-footer {
+    margin-top: 8px;
+    text-align: center;
+
+    .more-link {
+      color: var(--theme-stress-color);
+      font-size: var(--font-common-size);
+      transition: transitions(color, 0.3s);
+  
+      &.center {
+        text-align: center;
+      }
+  
+      &:hover {
+        color: var(--theme-active-color);
+  
+        > svg {
+          fill: var(--theme-active-color);
+        }
+      }
+  
+      > svg {
+        display: inline-block;
+        vertical-align: middle;
+        fill: var(--theme-stress-color);
+        transition: transitions(fill, 0.3s);
+      }
     }
   }
 }
@@ -52,20 +81,20 @@
     justify-content: space-between;
     line-height: 30px;
     padding-bottom: 6px;
-    border-bottom: 1px solid #F4F4F4;
+    border-bottom: 1px solid var(--theme-border-secondary);
 
     &:not(:last-child) {
       margin-bottom: 6px;
     }
 
     > a {
-      color: #333333;
+      color: var(--theme-dark-color);
     }
 
     > span {
       display: inline-block;
       border-radius: 20px;
-      color: #ffffff;
+      color: var(--theme-light-color);
       background-color: var(--theme-active-color);
       width: 25px;
       height: 25px;
@@ -85,10 +114,11 @@
     padding: 3px;
     margin: 3px;
     border-radius: 4px;
-    transition: all 0.3s ease-in-out;
+    color: var(--theme-dark-color);
+    transition: transitions((color, background-color), 0.3s);
 
     &:hover {
-      color: #ffffff;
+      color: var(--theme-light-color);
       background-color: var(--theme-active-color);
     }
   }

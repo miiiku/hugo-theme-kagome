@@ -1,7 +1,7 @@
 
-@import './reset.scss';
 @import './var.scss';
 @import './theme.scss';
+@import './reset.scss';
 @import './mixin.scss';
 @import './header.scss';
 @import './footer.scss';
@@ -12,5 +12,37 @@
 @import './pagination.scss';
 
 body {
-  background-color: var(--theme-bg-color);
+  background-color: var(--theme-bg-primary);
+}
+
+
+
+/** terms contaer style */
+.terms-container {
+  @include block-container;
+
+  .terms-inner {
+    @include block-inner;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .term-item {
+      margin: calc(var(--layout-padding-x) / 2);
+
+      > a {
+        display: inline-block;
+        padding: 3px 4px;
+        border-radius: 4px;
+        transition: transitions((color, background-color), 0.3s);
+
+        &:hover {
+          color: var(--theme-light-color);
+          background-color: var(--theme-active-color);
+        }
+      }
+    }
+  }
 }

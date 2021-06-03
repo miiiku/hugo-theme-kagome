@@ -1,30 +1,45 @@
 .header-container {
-  height: 130px;
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding-left: var(--layout-padding-x);
-  padding-right: var(--layout-padding-x);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include block-container;
+
+  .header-inner {
+    @include block-inner;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .header-logo h1 {
     font-size: 46px;
     font-weight: bolder;
     font-family: monospace, sans-serif;
-    color: #3e3e5f;
+    color: var(--theme-dark-color);
+    @include soft-text(2px);
   }
 
   .header-nav {
     padding-left: 40px;
 
     a.header-nav--item {
-      color: #3e3e5f;
+      display: inline-block;
+      color: var(--theme-dark-color);
       font-size: 16px;
       font-weight: bolder;
       font-family: monospace, sans-serif;
-      margin: 0 6px;
+      padding: 5px 10px;
+      overflow: hidden;
+      transition: transitions((box-shadow, background-color, background-image), 0.3s);
+
+      &:not(:last-child) {
+        margin-left: 8px;
+      }
+
+      &:hover {
+        @include soft-box(6px, 3px);
+      }
+
+      &:active {
+        @include soft-box--active(6px, 3px);
+      }
     }
   }
 }

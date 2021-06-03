@@ -8,13 +8,13 @@ menu, nav, output, ruby, section, summary, time, mark, audio, video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  font-family: cursive, sans-serif;
+  font: var(--base-font);
   font-size: 100%;
 }
 
 html {
   box-sizing: border-box;
-  font-family: cursive, sans-serif;
+  font: var(--base-font);
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }

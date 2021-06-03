@@ -1,66 +1,115 @@
-$light-bg-color: #f0f0f0;
+$light-bg-primary: #f5f8fa;
 $light-bg-high: #ffffff;
-$light-bg-shadow: #cccccc;
+$light-bg-shadow: #dddfe1;
+$light-bg-active1: #dddfe1;
+$light-bg-active2: #ffffff;
 
-$light-link-color: #f857a6;
-$light-text-color: #131515;
+$light-active-color: #f857a6;
+$light-dark-color: #3e3e5f;
+$light-light-color: #ffffff;
 $light-low-color: #aeacb1;
 $light-stress-color: #14281D;
 
+$light-border-primary: #e1e4e8;
+$light-border-secondary: #ebedef;
 
-$dark-bg-color: #c6c6c6;
-$dark-bg-high: #e4e4e4;
-$dark-bg-shadow: #a8a8a8;
 
-$dark-link-color: #f857a6;
-$dark-text-color: #343434;
-$dark-low-color: #747474;
-$dark-stress-color: #212121;
+// $dark-bg-primary: #c6c6c6;
+// $dark-bg-high: #e4e4e4;
+// $dark-bg-shadow: #a8a8a8;
+// $dark-bg-active1: #b2b2b2;
+// $dark-bg-active2: #d4d4d4;
+
+// $dark-active-color: #ca5388;
+// $dark-dark-color: #343434;
+// $dark-light-color: #dadada;
+// $dark-low-color: #747474;
+// $dark-stress-color: #212121;
+
+
+$dark-bg-primary: #1e2428;
+$dark-bg-high: #303a40;
+$dark-bg-shadow: #0c0e10;
+$dark-bg-active1: #1b2024;
+$dark-bg-active2: #20272b;
+
+$dark-active-color: #ca5388;
+$dark-dark-color: #adbac7;
+$dark-light-color: #adbac7;
+$dark-low-color: #444c56;
+$dark-stress-color: #cdd9e5;
+
+$dark-border-primary: #444c56;
+$dark-border-secondary: #373e47;
 
 .theme-light {
-  --theme-bg-color: #{$light-bg-color};
+  --theme-bg-primary: #{$light-bg-primary};
   --theme-bg-high: #{$light-bg-high};
   --theme-bg-shadow: #{$light-bg-shadow};
+  --theme-bg-actvie1: #{$light-bg-active1};
+  --theme-bg-actvie2: #{$light-bg-active2};
 
-  --theme-link-color: #{$light-link-color};
-  --theme-text-color: #{$light-text-color};
+  --theme-active-color: #{$light-active-color};
+  --theme-light-color: #{$light-light-color};
+  --theme-dark-color: #{$light-dark-color};
   --theme-low-color: #{$light-low-color};
   --theme-stress-color: #{$light-stress-color};
+
+  --theme-border-primary: #{$light-border-primary};
+  --theme-border-secondary: #{$light-border-secondary};
 }
 
 .theme-dark {
-  --theme-bg-color: #{$dark-bg-color};
+  --theme-bg-primary: #{$dark-bg-primary};
   --theme-bg-high: #{$dark-bg-high};
   --theme-bg-shadow: #{$dark-bg-shadow};
+  --theme-bg-actvie1: #{$dark-bg-active1};
+  --theme-bg-actvie2: #{$dark-bg-active2};
 
-  --theme-link-color: #{$dark-link-color};
-  --theme-text-color: #{$dark-text-color};
+  --theme-active-color: #{$dark-active-color};
+  --theme-light-color: #{$dark-light-color};
+  --theme-dark-color: #{$dark-dark-color};
   --theme-low-color: #{$dark-low-color};
   --theme-stress-color: #{$dark-stress-color};
+  
+  --theme-border-primary: #{$dark-border-primary};
+  --theme-border-secondary: #{$dark-border-secondary};
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --theme-bg-color: #{$light-bg-color};
+    --theme-bg-primary: #{$light-bg-primary};
     --theme-bg-high: #{$light-bg-high};
     --theme-bg-shadow: #{$light-bg-shadow};
+    --theme-bg-actvie1: #{$light-bg-active1};
+    --theme-bg-actvie2: #{$light-bg-active2};
 
-    --theme-link-color: #{$light-link-color};
-    --theme-text-color: #{$light-text-color};
+    --theme-active-color: #{$light-active-color};
+    --theme-light-color: #{$light-light-color};
+    --theme-dark-color: #{$light-dark-color};
     --theme-low-color: #{$light-low-color};
     --theme-stress-color: #{$light-stress-color};
+
+    --theme-border-primary: #{$light-border-primary};
+    --theme-border-secondary: #{$light-border-secondary};
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --theme-bg-color: #{$dark-bg-color};
+    --theme-bg-primary: #{$dark-bg-primary};
     --theme-bg-high: #{$dark-bg-high};
     --theme-bg-shadow: #{$dark-bg-shadow};
+    --theme-bg-actvie1: #{$dark-bg-active1};
+    --theme-bg-actvie2: #{$dark-bg-active2};
 
-    --theme-link-color: #{$dark-link-color};
-    --theme-text-color: #{$dark-text-color};
+    --theme-active-color: #{$dark-active-color};
+    --theme-light-color: #{$dark-light-color};
+    --theme-dark-color: #{$dark-dark-color};
     --theme-low-color: #{$dark-low-color};
     --theme-stress-color: #{$dark-stress-color};
+  
+    --theme-border-primary: #{$dark-border-primary};
+    --theme-border-secondary: #{$dark-border-secondary};
   }
 }

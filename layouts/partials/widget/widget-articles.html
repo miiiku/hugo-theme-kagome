@@ -9,7 +9,8 @@
       {{ $articles = where (where .Site.RegularPages "Section" "ne" "") ".File.UniqueID" "ne" .File.UniqueID }}
     {{ end }}
     <ul class="post-list">
-      {{ range first 5 $articles }}
+      {{ $count := or .Site.Params.articles_count 6 }}
+      {{ range first $count $articles }}
         <li class="post-item"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
       {{ end }}
     </ul>

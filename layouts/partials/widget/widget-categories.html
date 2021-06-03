@@ -1,22 +1,26 @@
 <section class="aside-widget widget-categories">
   <h2 class="widget-title">Categories</h2>
   <div class="widget-body">
-
     <ul class="categories-list">
-      {{ range $key, $value := .Site.Taxonomies.categories }}
+      {{ $count := or .Site.Params.categories_count 6 }}
+      {{ range first $count .Site.Taxonomies.categories.ByCount }}
         <li>
-          {{ with $.Site.GetPage (printf "/%s/%s" "categories" $key) }}
-            <a href="{{ .Permalink }}">{{ $key }}</a>
-          {{ end }}
-          <span>{{ len $value.Pages }}</span>
+          <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+          <span>{{ len .Page.Pages }}</span>
         </li>
       {{ end }}
     </ul>
-
-    {{ if gt (len .Site.Taxonomies.categories) 6 }}
-      {{ $all_page := $.Site.GetPage (printf "/%s" "categories") }}
-      <a href="{{ $all_page.Permalink }}" class="more-link">show all</a>
-    {{ end }}
-  
   </div>
+
+  {{ if gt (len .Site.Taxonomies.categories) $count }}
+    {{ $all_page := $.Site.GetPage (printf "/%s" "categories") }}
+    <div class="widget-footer">
+      <a href="{{ $all_page.Permalink }}" class="more-link">
+        show all
+        <svg class="icon icon-more" width="16" height="16" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60.928 247.808c-13.824-13.824-36.352-13.824-50.688 0-13.824 13.824-13.824 36.352 0 50.688L224.256 512 10.24 725.504c-13.824 13.824-13.824 36.352 0 50.688 7.168 7.168 15.872 10.24 25.088 10.24s18.432-3.584 25.088-10.24l239.104-239.104c13.824-13.824 13.824-36.352 0-50.688L60.928 247.808zM417.792 247.808c-13.824-13.824-36.352-13.824-50.688 0-13.824 13.824-13.824 36.352 0 50.688l213.504 213.504-213.504 213.504c-13.824 13.824-13.824 36.352 0 50.688 7.168 7.168 15.872 10.24 25.088 10.24s18.432-3.584 25.088-10.24l239.104-239.104c13.824-13.824 13.824-36.352 0-50.688L417.792 247.808zM1013.76 486.912l-239.104-239.104c-13.824-13.824-36.352-13.824-50.688 0-13.824 13.824-13.824 36.352 0 50.688l213.504 213.504-213.504 213.504c-13.824 13.824-13.824 36.352 0 50.688 7.168 7.168 15.872 10.24 25.088 10.24s18.432-3.584 25.088-10.24l239.104-239.104c14.336-13.824 14.336-36.352 0.512-50.176z"></path>
+        </svg>
+      </a>
+    </div>
+  {{ end }}
 </section>
