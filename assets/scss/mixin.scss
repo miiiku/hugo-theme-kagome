@@ -1,3 +1,20 @@
+@mixin centerBG {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+};
+
+@mixin mq-pc {
+  @media #{$mq-pc} {
+    @content;
+  }
+};
+
+@mixin mq-mb {
+  @media #{$mq-mb} {
+    @content;
+  }
+}
 
 @mixin block-container ($padding: false) {
   width: 100%;
@@ -6,33 +23,45 @@
   margin-right: auto;
   
   @if $padding {
-    padding-left: var(--layout-padding-x);
-    padding-right: var(--layout-padding-x);
+    padding: var(--layout-padding-x);
   }
-}
+};
 
 @mixin block-inner ($isSmall: false) {
   position: relative;
   overflow: hidden;
   word-break: break-all;
-  margin: var(--layout-padding-x);
 
   @if $isSmall {
-    border-radius: 12px;
-    padding: 20px 19px 23px;
-    @include soft-box(18px, 4px);
+    @include mq-pc {
+      border-radius: 12px;
+      padding: 20px 19px 23px;
+      @include soft-box(18px, 4px);
+    }
+    @include mq-mb {
+      border-radius: 8px;
+      padding: 14px 12px 16px;
+      @include soft-box(9px, 2px);
+    }
   } @else {
-    border-radius: 24px;
-    padding: 40px 38px 46px;
-    @include soft-box(24px, 6px);
+    @include mq-pc {
+      border-radius: 24px;
+      padding: 40px 38px 46px;
+      @include soft-box(24px, 6px);
+    }
+    @include mq-mb {
+      border-radius: 16px;
+      padding: 30px 28px 34px;
+      @include soft-box(16px, 4px);
+    }
   }
-}
+};
 
 @mixin soft-text ($size) {
   text-shadow:
     $size $size $size*2 var(--theme-bg-shadow),
     (-($size)) (-($size)) $size*2 var(--theme-bg-high);
-}
+};
 
 @mixin soft-box ($radius, $size) {
   overflow: hidden;
@@ -41,7 +70,7 @@
   box-shadow:
     $size $size $size*2 var(--theme-bg-shadow),
     (-($size)) (-($size)) $size*2 var(--theme-bg-high);
-}
+};
 
 @mixin soft-box--active ($radius, $size) {
   overflow: hidden;
@@ -50,18 +79,12 @@
   box-shadow:
     inset $size $size $size*2 var(--theme-bg-shadow),
     inset (-($size)) (-($size)) $size*2 var(--theme-bg-high);
-}
-
-@mixin centerBG {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+};
 
 @function transitions ($attribute, $duration) {
   $return: null;
   @each $var in $attribute {
-    $return: $return , #{$var} #{$duration} ease-in-out 
+    $return: $return , #{$var} #{$duration} ease-out
   }
   @return $return
-}
+};

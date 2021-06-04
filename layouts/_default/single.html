@@ -3,10 +3,14 @@
   
   <div class="single-container">
     <div class="article-info">
-      {{ partial "card/card-cover.html" . }}
+      <div class="article-header">
+        {{ partial "card/card-cover.html" . }}
+      </div>
 
-      <div class="article-content markdown-body">
-        {{ .Content }}
+      <div class="article-content">
+        <div class="markdown-body">
+          {{ .Content }}
+        </div>
       </div>
 
       <div class="article-paging">

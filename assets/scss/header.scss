@@ -1,5 +1,5 @@
 .header-container {
-  @include block-container;
+  @include block-container(true);
 
   .header-inner {
     @include block-inner;
@@ -9,36 +9,145 @@
   }
 
   .header-logo h1 {
-    font-size: 46px;
+    font-size: var(--font-large-size);
     font-weight: bolder;
     font-family: monospace, sans-serif;
+    white-space: nowrap;
     color: var(--theme-dark-color);
+    transition: transitions((color, text-shadow), 0.3s);
     @include soft-text(2px);
   }
 
   .header-nav {
     padding-left: 40px;
 
-    a.header-nav--item {
+    .header-nav--btn {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      user-select: none;
+
+      &.open div.btn-item {
+        transition: transform 0.3s ease 0.3s;
+      }
+      &.open div.btn-item::before {
+        transition: transform 0.3s ease, opacity 0.3s ease 0.3s;
+      }
+      &.open div.btn-item:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      &.open div.btn-item:nth-child(1)::before {
+        transform: translateY(0);
+      }
+      &.open div.btn-item:nth-child(2)::before {
+        opacity: 0;
+      }
+      &.open div.btn-item:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+      &.open div.btn-item:nth-child(3)::before {
+        transform: translateY(0);
+      }
+
+      .btn-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: center;
+        transition: transitions(transform, 0.3s);
+
+        &:nth-child(1):before {
+          transform: translateY(-8px);
+        }
+        &:nth-child(3):before {
+          transform: translateY(8px);
+        }
+
+        &::before {
+          position: absolute;
+          content: "";
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          width: 100%;
+          height: 2px;
+          border-radius: 2px;
+          background-color: var(--theme-stress-color);
+          transition: background-color 0.3s ease, transform 0.3s ease 0.3s, opacity 0.3s ease 0.3s;
+        }
+      }
+    }
+
+    a.list-item {
       display: inline-block;
       color: var(--theme-dark-color);
-      font-size: 16px;
+      font-size: var(--font-common-size);
       font-weight: bolder;
-      font-family: monospace, sans-serif;
-      padding: 5px 10px;
       overflow: hidden;
-      transition: transitions((box-shadow, background-color, background-image), 0.3s);
+      transition: transitions(color, 0.3s);
+    }
+  }
+}
 
-      &:not(:last-child) {
-        margin-left: 8px;
+@media #{$mq-pc} {
+  .header-container {
+    .header-nav--btn {
+      display: none;
+    }
+    .header-nav--list {
+      display: block;
+
+      .list-item {
+        padding: 3px 8px;
+        transition: transitions((box-shadow, background-color, background-image), 0.3s);
+  
+        &:hover {
+          @include soft-box(6px, 3px);
+        }
+  
+        &:active {
+          @include soft-box--active(6px, 3px);
+        }
+
+        &:not(:last-child) {
+          margin-left: 8px;
+        }
       }
+    }
+  }
+}
 
-      &:hover {
-        @include soft-box(6px, 3px);
-      }
 
-      &:active {
-        @include soft-box--active(6px, 3px);
+@media #{$mq-mb} {
+  .header-container {
+    .header-inner {
+      overflow: inherit;
+    }
+    .header-nav--btn {
+      display: block;
+    }
+    .header-nav--btn.open + .header-nav--list {
+      display: block;
+    }
+    .header-nav--list {
+      display: none;
+      position: absolute;
+      z-index: 9;
+      top: 100%;
+      right: 20px;
+      padding: 6px 0;
+      transform: translateY(-20px);
+      @include soft-box(8px, 2px);
+
+      a.list-item {
+        display: block;
+        text-align: left;
+        padding: 6px 12px;
       }
     }
   }

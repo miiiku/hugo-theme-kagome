@@ -58,6 +58,7 @@
   .card-text {
     color: var(--theme-light-color);
     position: relative;
+    transition: transitions(color, 0.3s);
 
     .card-text--title {
       font-size: var(--font-stress-size);
@@ -104,7 +105,7 @@
 
 /** section swiper style */
 .section-swiper {
-  @include block-container;
+  @include block-container(false);
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x proximity;
@@ -114,16 +115,24 @@
   }
 
   .swiper-item {
-    width: 25%;
-    flex-basis: 25%;
-    min-width: 25%;
+    padding: var(--layout-padding-x);
     scroll-snap-align: center;
+    @include mq-pc {
+      width: 25%;
+      flex: 0 0 25%;
+      min-width: 25%;
+    }
+    @include mq-mb {
+      width: 50%;
+      flex: 1 1 50%;
+      min-width: 50%;
+    }
   }
 }
 
 /** article section style */
 .article-section {
-  @include block-container;
+  @include block-container(true);
 }
 
 /** article lsit style */
@@ -133,12 +142,22 @@
   @include block-container;
 
   .article-card {
-    min-width: 350px;
-    min-height: 370px;
+    height: 100%;
   }
 
   .article-item {
+    padding: var(--layout-padding-x);
     flex: 1 1 33.33333%;
+
+    @include mq-pc {
+      min-width: 350px;
+      min-height: 330px;
+    }
+    @include mq-mb {
+      width: 100%;
+      min-width: 230px;
+      min-height: 240px;
+    }
 
     &.large {
       flex: 1 1 66.66666%;
@@ -175,14 +194,21 @@
   }
 }
 
+/** article-cover style */
+.article-header {
+  padding: var(--layout-padding-x);
+}
+
 /** article paging style */
 .article-paging {
   display: flex;
   flex-wrap: wrap;
 
   .post-paging--item {
+    margin: var(--layout-padding-x);
     color: var(--theme-light-color);
     text-align: center;
     flex: 1;
+    transition: transitions(color, 0.3s);
   }
 }

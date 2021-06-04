@@ -3,20 +3,41 @@
   display: flex;
   align-items: flex-start;
   overflow: visible;
-}
-
-.single-container .article-info {
-  flex: 0 1 calc(100% - 360px);
-  max-width: calc(100% - 360px);
 
   .article-content {
-    @include block-inner;
-  }
-}
+    padding: var(--layout-padding-x);
 
-.single-container .widget-info {
-  position: sticky;
-  top: 0;
-  width: 360px;
-  min-width: 360px;
+    .markdown-body {
+      @include block-inner;
+    }
+  }
+
+  .widget-info {
+    position: sticky;
+    top: 0;
+    width: 360px;
+    min-width: 360px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include mq-pc {
+    .article-info {
+      flex: 0 1 calc(100% - 360px);
+      min-width: calc(100% - 360px);
+    }
+    .widget-info {
+      display: block;
+    }
+  }
+
+  @include mq-mb {
+    .article-info {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+    .widget-info {
+      display: none;
+    }
+  }
 }

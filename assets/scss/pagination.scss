@@ -1,5 +1,5 @@
 .pagination-container {
-  @include block-container(true);
+  @include block-container;
   padding-top: 16px;
   padding-bottom: 16px;
 
@@ -18,7 +18,7 @@
 
       a {
         color: #aeacb1;
-        transition: color 0.3s ease-in-out;
+        transition: transitions(color, 0.3s);
 
         &:hover {
           color: var(--theme-active-color);

@@ -1,10 +1,31 @@
+$mq-pc: "screen and (min-width: 768px)";
+$mq-mb: "screen and (max-width: 767px)";
+
 :root {
   --layout-max-width: 1200px;
-  --layout-padding-x: 20px;
-  --font-stress-size: 22px;
-  --font-common-size: 16px;
-  --font-base-size: 14px;
   --base-font: var(--font-base-size) / 1.8 'Open Sans', sans-serif;
+}
+
+@media #{$mq-pc} {
+  :root {
+    --layout-max-width: 1200px;
+    --layout-padding-x: 20px;
+    --font-large-size: 46px;
+    --font-stress-size: 22px;
+    --font-common-size: 16px;
+    --font-base-size: 14px;
+  }
+}
+
+@media #{$mq-mb} {
+  :root {
+    --layout-max-width: 100%;
+    --layout-padding-x: 10px;
+    --font-large-size: 22px;
+    --font-stress-size: 18px;
+    --font-common-size: 14px;
+    --font-base-size: 12px;
+  }
 }
 
 

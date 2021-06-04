@@ -13,13 +13,14 @@
 
 body {
   background-color: var(--theme-bg-primary);
+  transition: transitions(background-color, 0.3s);
 }
 
 
 
 /** terms contaer style */
 .terms-container {
-  @include block-container;
+  @include block-container(true);
 
   .terms-inner {
     @include block-inner;
@@ -36,6 +37,7 @@ body {
         display: inline-block;
         padding: 3px 4px;
         border-radius: 4px;
+        color: var(--theme-dark-color);
         transition: transitions((color, background-color), 0.3s);
 
         &:hover {

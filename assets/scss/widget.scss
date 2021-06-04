@@ -1,5 +1,6 @@
 .aside-widget {
   @include block-inner;
+  margin: var(--layout-padding-x);
 
   .widget-title {
     color: var(--theme-stress-color);
@@ -7,6 +8,7 @@
     font-size: 24px;
     letter-spacing: 0.6px;
     margin-bottom: 20px;
+    transition: transitions(color, 0.3s);
 
     &::after {
       display: block;
@@ -14,6 +16,7 @@
       width: 100%;
       height: 2px;
       background-color: var(--theme-border-primary);
+      transition: transitions(background-color, 0.3s);
     }
   }
 
@@ -62,7 +65,7 @@
       color: var(--theme-active-color);
       font-weight: bolder;
       border-bottom: 2px solid #dde0e0;
-      transition: border 0.3s ease;
+      transition: transitions((color, border-color), 0.3s);
 
       &:hover {
         border-color: var(--theme-active-color);
@@ -82,6 +85,7 @@
     line-height: 30px;
     padding-bottom: 6px;
     border-bottom: 1px solid var(--theme-border-secondary);
+    transition: transitions(border-color, 0.3s);
 
     &:not(:last-child) {
       margin-bottom: 6px;
@@ -89,6 +93,7 @@
 
     > a {
       color: var(--theme-dark-color);
+      transition: transitions(color, 0.3s);
     }
 
     > span {
@@ -101,6 +106,7 @@
       text-align: center;
       line-height: 25px;
       font-size: 12px;
+      transition: transitions((color, background-color), 0.3s);
     }
   }
 }
