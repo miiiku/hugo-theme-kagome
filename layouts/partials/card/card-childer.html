@@ -5,6 +5,6 @@
       <h4 class="card-text--title">{{ .Title }}</h4>
       <p class="card-text--row">{{ .Params.desc }}</p>
     </div>
-    <a href="{{ .RelPermalink }}" class="card-link"></a>
+    <a href="{{ .RelPermalink | safeURL }}" class="card-link"></a>
   </section>
 </div>

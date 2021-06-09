@@ -60,7 +60,7 @@
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: var(--theme-dark-color);
+  color: var(--theme-text-primary);
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: var(--font-base-size);
   line-height: 1.8;
@@ -782,6 +782,7 @@
   max-width: 100%;
   box-sizing: initial;
   background-color: #fff;
+  @include soft-box(6px, 3px);
 }
 
 .markdown-body img[align=right] {
@@ -988,4 +989,16 @@
 .markdown-body .task-list-item input {
   margin: 0 .2em .25em -1.6em;
   vertical-align: middle;
+}
+
+
+/** append style */
+.markdown-body .figure-image {
+  margin-bottom: 16px;
+
+  figcaption {
+    margin-top: 12px;
+    text-align: center;
+    color: var(--theme-text-low);
+  }
 }

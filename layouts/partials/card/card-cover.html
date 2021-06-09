@@ -7,7 +7,6 @@
   </div>
 
   <div class="card-text">
-    <h1>Kind: {{ .Kind }} | Type: {{ .Type }}</h1>
     <h1 class="card-text--title">{{ .Title }}</h1>
     {{ if eq .Type "page" }}
       {{ with .Params.desc }}
@@ -21,7 +20,7 @@
         <ul class="card-text--tag">
           {{ range $index, $director := . }}
             {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
-              <li><a href="{{ .Permalink }}">{{ $director }}</a></li>
+              <li><a href="{{ .Permalink | safeURL }}">{{ $director }}</a></li>
             {{- end -}}
           {{- end -}}
         </ul>
@@ -32,7 +31,7 @@
         <ul class="card-text--tag">
           {{ range $index, $director := . }}
             {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
-              <li><a href="{{ .Permalink }}">{{ $director }}</a></li>
+              <li><a href="{{ .Permalink | safeURL }}">{{ $director }}</a></li>
             {{- end -}}
           {{- end -}}
         </ul>

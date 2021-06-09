@@ -21,7 +21,7 @@
         transition: transitions(color, 0.3s);
 
         &:hover {
-          color: var(--theme-active-color);
+          color: var(--theme-text-active);
         }
       }
 

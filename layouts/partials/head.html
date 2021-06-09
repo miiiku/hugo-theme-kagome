@@ -1,11 +1,43 @@
 <head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Site.Title }}</title>
+  {{ $title := .Site.Title }}
+  {{ with .Params.Title }}
+  {{ $title = printf "%s 🌟 %s" . $title }}
+  {{ end }}
+  <title>{{- $title -}}</title>
+
+  {{ if or .Params.author .Site.Params.author }} {{/* author */}}
+    <meta name="author" content="{{- or .Params.author .Site.Params.author -}}">
+  {{ end }}
+
+  {{ if or .Keywords .Site.Params.keywords }} {{/* keywords */}}
+    {{ $keywords := slice }}
+    {{ with .Params.keywords }}
+    {{ $keywords = . }}
+    {{ else }}
+    {{ with .Site.Params.keywords }}
+    {{ $keywords = . }}
+    {{ end }}
+    {{ end }}
+    <meta name="keywords" content="{{ range $index, $value := $keywords }}{{ if gt $index 0 }},{{ end }}{{ $value }}{{ end }}">
+  {{ end }}
+
+  {{ if or .Description .Site.Params.description }} {{/* description*/}}
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  {{ end }}
+
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
+
+  {{/* style */}}
   {{ $sass := resources.Get "scss/main.scss" }}
   {{ $options := (dict "targetPath" "style.min.css" "outputStyle" "compressed") }}
   {{ $style := $sass | resources.ToCSS $options }}
   <link rel="stylesheet" href="{{ $style.Permalink }}">
 
+  {{/* script */}}
   {{ $js := resources.Get "js/main.js" }}
   {{ $outFile := $js | resources.Minify }}
   <script src="{{ $outFile.Permalink }}"></script>

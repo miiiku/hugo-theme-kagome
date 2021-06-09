@@ -1,43 +1,32 @@
+/** light theme */
 $light-bg-primary: #f5f8fa;
 $light-bg-high: #ffffff;
 $light-bg-shadow: #dddfe1;
 $light-bg-active1: #dddfe1;
 $light-bg-active2: #ffffff;
 
-$light-active-color: #f857a6;
-$light-dark-color: #3e3e5f;
-$light-light-color: #ffffff;
-$light-low-color: #aeacb1;
-$light-stress-color: #14281D;
+$light-text-active: #f857a6;
+$light-text-light: #ffffff;
+$light-text-primary: #3e3e5f;
+$light-text-low: #aeacb1;
+$light-text-stress: #14281D;
 
 $light-border-primary: #e1e4e8;
 $light-border-secondary: #ebedef;
 
 
-// $dark-bg-primary: #c6c6c6;
-// $dark-bg-high: #e4e4e4;
-// $dark-bg-shadow: #a8a8a8;
-// $dark-bg-active1: #b2b2b2;
-// $dark-bg-active2: #d4d4d4;
-
-// $dark-active-color: #ca5388;
-// $dark-dark-color: #343434;
-// $dark-light-color: #dadada;
-// $dark-low-color: #747474;
-// $dark-stress-color: #212121;
-
-
+/** dark theme */
 $dark-bg-primary: #1e2428;
 $dark-bg-high: #303a40;
 $dark-bg-shadow: #0c0e10;
 $dark-bg-active1: #1b2024;
 $dark-bg-active2: #20272b;
 
-$dark-active-color: #ca5388;
-$dark-dark-color: #adbac7;
-$dark-light-color: #adbac7;
-$dark-low-color: #444c56;
-$dark-stress-color: #cdd9e5;
+$dark-text-active: #ca5388;
+$dark-text-light: #d7dfe6;
+$dark-text-primary: #adbac7;
+$dark-text-low: #444c56;
+$dark-text-stress: #cdd9e5;
 
 $dark-border-primary: #444c56;
 $dark-border-secondary: #373e47;
@@ -49,11 +38,11 @@ $dark-border-secondary: #373e47;
   --theme-bg-actvie1: #{$light-bg-active1};
   --theme-bg-actvie2: #{$light-bg-active2};
 
-  --theme-active-color: #{$light-active-color};
-  --theme-light-color: #{$light-light-color};
-  --theme-dark-color: #{$light-dark-color};
-  --theme-low-color: #{$light-low-color};
-  --theme-stress-color: #{$light-stress-color};
+  --theme-text-active: #{$light-text-active};
+  --theme-text-light: #{$light-text-light};
+  --theme-text-primary: #{$light-text-primary};
+  --theme-text-low: #{$light-text-low};
+  --theme-text-stress: #{$light-text-stress};
 
   --theme-border-primary: #{$light-border-primary};
   --theme-border-secondary: #{$light-border-secondary};
@@ -66,11 +55,11 @@ $dark-border-secondary: #373e47;
   --theme-bg-actvie1: #{$dark-bg-active1};
   --theme-bg-actvie2: #{$dark-bg-active2};
 
-  --theme-active-color: #{$dark-active-color};
-  --theme-light-color: #{$dark-light-color};
-  --theme-dark-color: #{$dark-dark-color};
-  --theme-low-color: #{$dark-low-color};
-  --theme-stress-color: #{$dark-stress-color};
+  --theme-text-active: #{$dark-text-active};
+  --theme-text-light: #{$dark-text-light};
+  --theme-text-primary: #{$dark-text-primary};
+  --theme-text-low: #{$dark-text-low};
+  --theme-text-stress: #{$dark-text-stress};
   
   --theme-border-primary: #{$dark-border-primary};
   --theme-border-secondary: #{$dark-border-secondary};
@@ -84,11 +73,11 @@ $dark-border-secondary: #373e47;
     --theme-bg-actvie1: #{$light-bg-active1};
     --theme-bg-actvie2: #{$light-bg-active2};
 
-    --theme-active-color: #{$light-active-color};
-    --theme-light-color: #{$light-light-color};
-    --theme-dark-color: #{$light-dark-color};
-    --theme-low-color: #{$light-low-color};
-    --theme-stress-color: #{$light-stress-color};
+    --theme-text-active: #{$light-text-active};
+    --theme-text-light: #{$light-text-light};
+    --theme-text-primary: #{$light-text-primary};
+    --theme-text-low: #{$light-text-low};
+    --theme-text-stress: #{$light-text-stress};
 
     --theme-border-primary: #{$light-border-primary};
     --theme-border-secondary: #{$light-border-secondary};
@@ -103,11 +92,11 @@ $dark-border-secondary: #373e47;
     --theme-bg-actvie1: #{$dark-bg-active1};
     --theme-bg-actvie2: #{$dark-bg-active2};
 
-    --theme-active-color: #{$dark-active-color};
-    --theme-light-color: #{$dark-light-color};
-    --theme-dark-color: #{$dark-dark-color};
-    --theme-low-color: #{$dark-low-color};
-    --theme-stress-color: #{$dark-stress-color};
+    --theme-text-active: #{$dark-text-active};
+    --theme-text-light: #{$dark-text-light};
+    --theme-text-primary: #{$dark-text-primary};
+    --theme-text-low: #{$dark-text-low};
+    --theme-text-stress: #{$dark-text-stress};
   
     --theme-border-primary: #{$dark-border-primary};
     --theme-border-secondary: #{$dark-border-secondary};

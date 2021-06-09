@@ -13,7 +13,7 @@
     font-weight: bolder;
     font-family: monospace, sans-serif;
     white-space: nowrap;
-    color: var(--theme-dark-color);
+    color: var(--theme-text-primary);
     transition: transitions((color, text-shadow), 0.3s);
     @include soft-text(2px);
   }
@@ -77,7 +77,7 @@
           width: 100%;
           height: 2px;
           border-radius: 2px;
-          background-color: var(--theme-stress-color);
+          background-color: var(--theme-text-stress);
           transition: background-color 0.3s ease, transform 0.3s ease 0.3s, opacity 0.3s ease 0.3s;
         }
       }
@@ -85,7 +85,7 @@
 
     a.list-item {
       display: inline-block;
-      color: var(--theme-dark-color);
+      color: var(--theme-text-primary);
       font-size: var(--font-common-size);
       font-weight: bolder;
       overflow: hidden;

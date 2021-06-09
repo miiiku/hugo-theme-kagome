@@ -37,12 +37,12 @@ body {
         display: inline-block;
         padding: 3px 4px;
         border-radius: 4px;
-        color: var(--theme-dark-color);
+        color: var(--theme-text-primary);
         transition: transitions((color, background-color), 0.3s);
 
         &:hover {
-          color: var(--theme-light-color);
-          background-color: var(--theme-active-color);
+          color: var(--theme-text-light);
+          background-color: var(--theme-text-active);
         }
       }
     }

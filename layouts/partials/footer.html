@@ -60,4 +60,8 @@
     <a href="javascript:;" id="theme-dark">🌛 深色</a>
     <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
   </p>
+  
+  {{ if .Params.markup }}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  {{ end }}
 </footer>

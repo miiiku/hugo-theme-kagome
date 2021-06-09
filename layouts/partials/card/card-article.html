@@ -2,13 +2,31 @@
   <section class="article-card card-container large">
     <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
     <div class="card-text">
-      <h4 class="card-text--title">{{ .Title }}</h4>
-      <p class="card-text--row">
-        {{ .Site.Author.name  }}
-        发布于
-        {{ .Date.Format "2006-01-02 15:04" }}
-      </p>
+      <a href="{{ .Permalink | safeURL }}"><h4 class="card-text--title">{{ .Title }}</h4></a>
+
+      <p class="card-text--row">{{- .Date.Format "January 2, 2006" -}}</p>
+      
+      {{ $taxo := "categories" }}
+      {{ with .Param $taxo }}
+        <ul class="card-text--tag">
+          {{ range $index, $director := . }}
+            {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
+              <li><a href="{{ .Permalink | safeURL }}">{{ $director }}</a></li>
+            {{- end -}}
+          {{- end -}}
+        </ul>
+      {{ end }}
+
+      {{ $taxo := "tags" }}
+      {{ with .Param $taxo }}
+        <ul class="card-text--tag">
+          {{ range $index, $director := . }}
+            {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
+              <li><a href="{{ .Permalink | safeURL }}">{{ $director }}</a></li>
+            {{- end -}}
+          {{- end -}}
+        </ul>
+      {{ end }}
     </div>
-    <a class="card-link" href="{{ .Permalink }}"></a>
   </section>
 </div>

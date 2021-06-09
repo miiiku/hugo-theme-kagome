@@ -75,13 +75,13 @@
 @mixin soft-box--active ($radius, $size) {
   overflow: hidden;
   border-radius: $radius;
-  background: linear-gradient(145deg, var(--theme-active-color1), var(--theme-active-color2));
+  background: linear-gradient(145deg, var(--theme-text-active1), var(--theme-text-active2));
   box-shadow:
     inset $size $size $size*2 var(--theme-bg-shadow),
     inset (-($size)) (-($size)) $size*2 var(--theme-bg-high);
 };
 
-@function transitions ($attribute, $duration) {
+@function transitions ($attribute, $duration: 0.3s) {
   $return: null;
   @each $var in $attribute {
     $return: $return , #{$var} #{$duration} ease-out

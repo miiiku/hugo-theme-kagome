@@ -2,13 +2,31 @@
   @include block-inner;
   margin: var(--layout-padding-x);
 
-  .widget-title {
-    color: var(--theme-stress-color);
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: 0.6px;
+  .widget-header {
     margin-bottom: 20px;
-    transition: transitions(color, 0.3s);
+
+    .title {
+      display: flex;
+      align-items: center;
+
+      > svg {
+        display: block;
+        fill: var(--theme-text-stress);
+        width: calc(var(--font-stress-size) + 6px);
+        height: calc(var(--font-stress-size) + 6px);
+      }
+  
+      > span {
+        margin-left: 6px;
+        color: var(--theme-text-stress);
+        font-weight: 500;
+        font-size: var(--font-stress-size);
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        transition: transitions(color, 0.3s);
+        @include soft-text(2px);
+      }
+    }
 
     &::after {
       display: block;
@@ -25,7 +43,7 @@
     text-align: center;
 
     .more-link {
-      color: var(--theme-stress-color);
+      color: var(--theme-text-stress);
       font-size: var(--font-common-size);
       transition: transitions(color, 0.3s);
   
@@ -34,18 +52,49 @@
       }
   
       &:hover {
-        color: var(--theme-active-color);
+        color: var(--theme-text-active);
   
         > svg {
-          fill: var(--theme-active-color);
+          fill: var(--theme-text-active);
         }
       }
   
       > svg {
         display: inline-block;
         vertical-align: middle;
-        fill: var(--theme-stress-color);
+        fill: var(--theme-text-stress);
         transition: transitions(fill, 0.3s);
+      }
+    }
+  }
+}
+
+.widget-toc {
+  ul, ol {
+    list-style: inherit;
+    padding-left: 20px;
+
+    > li {
+      margin: 16px 0;
+
+      &::marker {
+        color: var(--theme-text-primary);
+        transition: transitions(color, 0.3s);
+      }
+
+      > a {
+        color: var(--theme-text-primary);
+        transition: transitions(color, 0.3s);
+      }
+
+      &:hover {
+        &::marker {
+          color: var(--theme-text-active);
+        }
+
+        > a {
+          color: var(--theme-text-active);
+        }
       }
     }
   }
@@ -62,13 +111,13 @@
 
     a {
       line-height: 1.6;
-      color: var(--theme-active-color);
+      color: var(--theme-text-active);
       font-weight: bolder;
       border-bottom: 2px solid #dde0e0;
       transition: transitions((color, border-color), 0.3s);
 
       &:hover {
-        border-color: var(--theme-active-color);
+        border-color: var(--theme-text-active);
       }
     }
   }
@@ -92,15 +141,15 @@
     }
 
     > a {
-      color: var(--theme-dark-color);
+      color: var(--theme-text-primary);
       transition: transitions(color, 0.3s);
     }
 
     > span {
       display: inline-block;
       border-radius: 20px;
-      color: var(--theme-light-color);
-      background-color: var(--theme-active-color);
+      color: var(--theme-text-light);
+      background-color: var(--theme-text-active);
       width: 25px;
       height: 25px;
       text-align: center;
@@ -120,12 +169,12 @@
     padding: 3px;
     margin: 3px;
     border-radius: 4px;
-    color: var(--theme-dark-color);
+    color: var(--theme-text-primary);
     transition: transitions((color, background-color), 0.3s);
 
     &:hover {
-      color: var(--theme-light-color);
-      background-color: var(--theme-active-color);
+      color: var(--theme-text-light);
+      background-color: var(--theme-text-active);
     }
   }
 }

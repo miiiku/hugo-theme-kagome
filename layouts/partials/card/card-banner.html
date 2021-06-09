@@ -31,27 +31,27 @@
         {{ if .Section }} {{/* section single page */}}
           <p class="card-text--row">{{ .Date.Format "2006-01-02 15:04" }}</p>
           
-          <ul class="card-text--tag">
-            {{ $taxo := "categories" }}
-            {{ with .Param $taxo }}
+          {{ $taxo := "categories" }}
+          {{ with .Param $taxo }}
+            <ul class="card-text--tag">
               {{ range $index, $director := . }}
                 {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
-                  <li><a href="{{ .Permalink }}">{{ $director }}</a></li>
+                  <li><a href="{{ .Permalink | safeURL }}">{{ $director }}</a></li>
                 {{- end -}}
               {{- end -}}
-            {{ end }}
-          </ul>
+            </ul>
+          {{ end }}
 
-          <ul class="card-text--tag">
-            {{ $taxo := "tags" }}
-            {{ with .Param $taxo }}
+          {{ $taxo := "tags" }}
+          {{ with .Param $taxo }}
+            <ul class="card-text--tag">
               {{ range $index, $director := . }}
                 {{ with $.Site.GetPage (printf "/%s/%s" $taxo $director) -}}
-                  <li><a href="{{ .Permalink }}">{{ $director }}</a></li>
+                  <li><a href="{{ .Permalink | safeURL }}">{{ $director }}</a></li>
                 {{- end -}}
               {{- end -}}
-            {{ end }}
-          </ul>
+            </ul>
+          {{ end }}
         {{ else }} {{/* root single page */}}
           {{ with .Params.desc }}
             <p class="card-text--row">{{ . }}</p>
