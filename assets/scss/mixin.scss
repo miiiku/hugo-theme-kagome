@@ -29,30 +29,103 @@
 
 @mixin block-inner ($isSmall: false) {
   position: relative;
-  overflow: hidden;
   word-break: break-all;
+
+  $pc-large: (
+    radius: 24px,
+    padding: 40px 38px 46px,
+    soft: (24px, 6px)
+  );
+  $pc-small: (
+    radius: 12px,
+    padding: 20px 19px 23px,
+    soft: (18px, 4px),
+  );
+  
+  $mb-large: (
+    radius: 16px,
+    padding: 30px 28px 34px,
+    soft: (16px, 4px),
+  );
+  $mb-small: (
+    radius: 8px,
+    padding: 14px 12px 16px,
+    soft: (9px, 2px),
+  );
+
+  &.hover {
+    transition: transitions(box-shadow);
+  }
+
+  &.active {
+    transition: transitions((box-shadow, background-image));
+  }
 
   @if $isSmall {
     @include mq-pc {
-      border-radius: 12px;
-      padding: 20px 19px 23px;
-      @include soft-box(18px, 4px);
+      border-radius: map-get($map: $pc-small, $key: radius);
+      padding: map-get($map: $pc-small, $key: padding);
+
+      @include soft-box(
+        nth(map-get($map: $pc-small, $key: soft), 1),
+        nth(map-get($map: $pc-small, $key: soft), 2),
+      );
+
+      &.hover:hover {
+        @include soft-box(
+          nth(map-get($map: $pc-small, $key: soft), 1),
+          nth(map-get($map: $pc-small, $key: soft), 2) + 2px,
+        );
+      }
+
+      &.active:active {
+        @include soft-box--active(
+          nth(map-get($map: $pc-small, $key: soft), 1),
+          nth(map-get($map: $pc-small, $key: soft), 2),
+        );
+      }
     }
     @include mq-mb {
-      border-radius: 8px;
-      padding: 14px 12px 16px;
-      @include soft-box(9px, 2px);
+      border-radius: map-get($map: $mb-small, $key: radius);
+      padding: map-get($map: $mb-small, $key: padding);
+
+      @include soft-box(
+        nth(map-get($map: $mb-small, $key: soft), 1),
+        nth(map-get($map: $mb-small, $key: soft), 2),
+      );
     }
   } @else {
     @include mq-pc {
-      border-radius: 24px;
-      padding: 40px 38px 46px;
-      @include soft-box(24px, 6px);
+      border-radius: map-get($map: $pc-large, $key: radius);
+      padding: map-get($map: $pc-large, $key: padding);
+
+      @include soft-box(
+        nth(map-get($map: $pc-large, $key: soft), 1),
+        nth(map-get($map: $pc-large, $key: soft), 2),
+      );
+
+      &.hover:hover {
+        @include soft-box(
+          nth(map-get($map: $pc-large, $key: soft), 1),
+          nth(map-get($map: $pc-large, $key: soft), 2) + 2px,
+        );
+      }
+
+      &.active:active {
+        @include soft-box--active(
+          nth(map-get($map: $pc-large, $key: soft), 1),
+          nth(map-get($map: $pc-large, $key: soft), 2),
+        );
+      }
     }
     @include mq-mb {
-      border-radius: 16px;
-      padding: 30px 28px 34px;
-      @include soft-box(16px, 4px);
+      border-radius: map-get($map: $mb-large, $key: radius);
+      padding: map-get($map: $mb-large, $key: padding);
+
+      @include soft-box(
+        nth(map-get($map: $mb-large, $key: soft), 1),
+        nth(map-get($map: $mb-large, $key: soft), 2),
+      );
     }
   }
 };
@@ -75,7 +148,7 @@
 @mixin soft-box--active ($radius, $size) {
   overflow: hidden;
   border-radius: $radius;
-  background: linear-gradient(145deg, var(--theme-text-active1), var(--theme-text-active2));
+  background-image: linear-gradient(145deg, var(--theme-text-active1), var(--theme-text-active2));
   box-shadow:
     inset $size $size $size*2 var(--theme-bg-shadow),
     inset (-($size)) (-($size)) $size*2 var(--theme-bg-high);

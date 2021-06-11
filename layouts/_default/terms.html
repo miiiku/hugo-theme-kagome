@@ -18,9 +18,9 @@
   <div class="terms-container">
     <div class="terms-inner">
       {{ range .Pages }}
-        <section class="term-item">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </section>
+        <div class="term-item padding-layout">
+          <a href="{{ .Permalink | safeURL }}" class="hover active" data-count="{{ len .Pages }}">{{ .Title }}</a>
+        </div>
       {{ end }}
     </div>
   </div>

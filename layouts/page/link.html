@@ -1,0 +1,45 @@
+{{/* pages layout link */}}
+{{ define "main" }}
+  <!-- {{ partial "card/card-banner.html" . }} -->
+  
+  <div class="single-container">
+    <div class="article-info">
+      <div class="article-header">
+        {{ partial "card/card-cover.html" . }}
+      </div>
+      
+      <div class="article-content">
+        <div class="markdown-body">
+          {{ .Content }}
+        </div>
+      </div>
+
+      <div class="links-content">
+        <div class="links-wrap">
+          {{ range .Site.Data.link }}
+            <div class="link-item padding-layout">
+              <a href="{{ .link | safeURL }}" target="_blank" rel="noopener" class="hover active">
+                {{ if .cover }}
+                  <img src="{{ .cover | safeURL }}" alt="{{ .name }}">
+                {{ end }}
+                <div>
+                  <h4 class="text-ellipsis">{{ .name }}</h4>
+                  {{ with .description }}
+                  <p class="text-ellipsis">{{ . }}</p>
+                  {{ end }}
+                </div>
+              </a>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    <aside class="widget-info">
+      {{ partial "widget/widget-categories.html" . }}
+
+      {{ partial "widget/widget-tags.html" . }}
+    </aside>
+  </div>
+
+{{ end }}

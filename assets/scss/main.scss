@@ -7,6 +7,7 @@
 @import './footer.scss';
 @import './card.scss';
 @import './single.scss';
+@import './page.scss';
 @import './markdown.scss';
 @import './widget.scss';
 @import './pagination.scss';
@@ -14,37 +15,4 @@
 body {
   background-color: var(--theme-bg-primary);
   transition: transitions(background-color, 0.3s);
-}
-
-
-
-/** terms contaer style */
-.terms-container {
-  @include block-container(true);
-
-  .terms-inner {
-    @include block-inner;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    .term-item {
-      margin: calc(var(--layout-padding-x) / 2);
-
-      > a {
-        display: inline-block;
-        padding: 3px 4px;
-        border-radius: 4px;
-        color: var(--theme-text-primary);
-        transition: transitions((color, background-color), 0.3s);
-
-        &:hover {
-          color: var(--theme-text-light);
-          background-color: var(--theme-text-active);
-        }
-      }
-    }
-  }
 }

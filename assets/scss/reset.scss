@@ -67,3 +67,17 @@ b, strong {
 i, em, dfn {
   font-style: italic;
 }
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.padding-layout {
+  padding: var(--layout-padding-x);
+}
+
+.margin-layout {
+  margin: var(--layout-padding-x);
+}
