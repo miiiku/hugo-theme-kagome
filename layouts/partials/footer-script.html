@@ -1,0 +1,65 @@
+{{/* markup */}}
+{{ if and (eq .Kind "page") .Params.markup }}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{{ end }}
+
+{{/* aplery */}}
+{{ if and (eq .Kind "page") .Params.aplayer }}
+<link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+<script type="text/javascript" src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script type="text/javascript">
+  window.addEventListener('load', () => {
+    const aplayer = document.querySelectorAll(".aplayer-box");
+    aplayer && initaplayer(aplayer);
+    function initaplayer(els) {
+      let elsArr = Array.from(els);
+      elsArr.forEach(el => {
+        let params = {
+          container: el,
+          audio: { ...el.dataset },
+          theme: "{{- $.Site.Params.aplayer.theme -}}",
+          autoplay: {{- $.Site.Params.aplayer.autoplay | safeJS -}},
+          loop: {{- $.Site.Params.aplayer.loop | safeJS -}},
+          mutex: {{- $.Site.Params.aplayer.mutex | safeJS -}}
+        }
+        if (el.dataset.lrc) {
+          params['lrcType'] = {{- $.Site.Params.aplayer.lrcType -}}
+        }
+        new APlayer(params);
+      });
+    }
+  })
+</script>
+{{ end }}
+
+{{/* dplayer */}}
+{{ if and (eq .Kind "page") .Params.dplayer }}
+<script type="text/javascript" src="https://unpkg.com/hls.js@1.0.1/dist/hls.js"></script>
+<script type="text/javascript" src="https://unpkg.com/dplayer@1.25.1/dist/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer-box");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      let subtitle = el.dataset.subtitle;
+      let options = {
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "{{- $.Site.Params.dplayer.theme -}}",
+        autoplay: {{- $.Site.Params.dplayer.autoplay -}},
+        loop: {{- $.Site.Params.dplayer.loop -}},
+        mutex: {{- $.Site.Params.dplayer.mutex -}},
+      }
+      if (subtitle) {
+        options.subtitle = {
+          url: el.dataset.subtitle,
+        }
+      }
+      new DPlayer(options);
+    });
+  }
+</script>
+{{ end }}

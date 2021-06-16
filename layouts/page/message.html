@@ -1,0 +1,15 @@
+{{/* pages layout message */}}
+{{ define "main" }}
+<div class="message-content padding-layout">
+  <!-- {{ template "_internal/disqus.html" . }} -->
+  <div class="disqus-box">{{- partial "test.html" . -}}</div>
+</div>
+{{ end }}
+
+{{ define "widget" }}
+<aside class="widget-info">
+  {{ partial "widget/widget-categories.html" . }}
+
+  {{ partial "widget/widget-tags.html" . }}
+</aside>
+{{ end }}

@@ -58,6 +58,7 @@
   }
 
   .card-text {
+    line-height: var(--font-base-lh);
     color: var(--theme-text-light);
     position: relative;
     transition: transitions(color, 0.3s);

@@ -1,0 +1,11 @@
+{{- $url    := .Get "url"     | default (.Get 0) -}}
+{{- $name   := .Get "name"    | default (.Get 1) -}}
+{{- $artist := .Get "artist"  | default (.Get 2) -}}
+{{- $cover  := .Get "cover" }}
+<div
+  class="aplayer-box"
+  data-url="{{ $url }}"
+  data-name="{{ $name }}"
+  data-artist="{{ $artist }}"
+  {{ with $cover }}data-cover="{{ $cover }}"{{ end }}
+></div>

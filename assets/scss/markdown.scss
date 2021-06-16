@@ -63,7 +63,7 @@
   color: var(--theme-text-primary);
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
   font-size: var(--font-base-size);
-  line-height: 1.8;
+  line-height: var(--font-base-lh);
   word-wrap: break-word;
   transition: transitions(color, 0.3s);
 }
@@ -993,6 +993,26 @@
 
 
 /** append style */
+.markdown-body .iframe-vidoe { /** iframe video */
+  @include soft-box(6px, 3px);
+}
+
+.markdown-body .aplayer.aplayer-box { /** aplayer */
+  margin: 0;
+  margin-bottom: 16px;
+  background-color: var(--theme-bg-color);
+  @include soft-box(6px, 3px);
+
+  .aplayer-info .aplayer-controller .aplayer-time {
+    line-height: normal;
+  }
+}
+
+.markdown-body .dplayer.dplayer-box { /** dplayer */
+  margin-bottom: 16px;
+  @include soft-box(6px, 3px);
+}
+
 .markdown-body .figure-image {
   margin-bottom: 16px;
 

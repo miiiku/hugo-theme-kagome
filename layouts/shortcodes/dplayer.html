@@ -1,0 +1,4 @@
+{{- $url    := .Get "url"     | default (.Get 0) -}}
+{{- $cover   := .Get "cover"  | default (.Get 1) -}}
+
+<div class="dplayer-box" data-url="{{ $url }}" data-cover="{{ $cover }}"></div>

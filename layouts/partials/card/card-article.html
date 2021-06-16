@@ -1,6 +1,11 @@
 <div class="article-item {{ .Params.grow }}">
   <section class="article-card card-container large">
-    <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
+    {{ with .Params.cover }}
+    <div class="card-cover background-image-lazy" data-img="{{ . }}"></div>
+    {{ else }}
+    <div class="card-cover"></div>
+    {{ end }}
+    
     <div class="card-text">
       <a href="{{ .Permalink | safeURL }}"><h4 class="card-text--title">{{ .Title }}</h4></a>
 

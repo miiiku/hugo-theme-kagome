@@ -31,7 +31,7 @@ $dark-text-stress: #cdd9e5;
 $dark-border-primary: #444c56;
 $dark-border-secondary: #373e47;
 
-.theme-light {
+:root.theme-light {
   --theme-bg-primary: #{$light-bg-primary};
   --theme-bg-high: #{$light-bg-high};
   --theme-bg-shadow: #{$light-bg-shadow};
@@ -48,7 +48,7 @@ $dark-border-secondary: #373e47;
   --theme-border-secondary: #{$light-border-secondary};
 }
 
-.theme-dark {
+:root.theme-dark {
   --theme-bg-primary: #{$dark-bg-primary};
   --theme-bg-high: #{$dark-bg-high};
   --theme-bg-shadow: #{$dark-bg-shadow};

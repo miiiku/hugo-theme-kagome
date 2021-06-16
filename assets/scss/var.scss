@@ -3,7 +3,7 @@ $mq-mb: "screen and (max-width: 767px)";
 
 :root {
   --layout-max-width: 1200px;
-  --base-font: var(--font-base-size) / 1.8 'Open Sans', sans-serif;
+  --base-font: var(--font-base-size) / var(--font-base-lh) 'Open Sans', sans-serif;
 }
 
 @media #{$mq-pc} {
@@ -14,6 +14,7 @@ $mq-mb: "screen and (max-width: 767px)";
     --font-stress-size: 22px;
     --font-common-size: 16px;
     --font-base-size: 14px;
+    --font-base-lh: 1.8;
   }
 }
 
@@ -25,10 +26,6 @@ $mq-mb: "screen and (max-width: 767px)";
     --font-stress-size: 18px;
     --font-common-size: 14px;
     --font-base-size: 12px;
+    --font-base-lh: 1.4;
   }
 }
-
-
-// Media queries
-// mq-pc = "screen and (min-width: 768px)"
-// mq-mb = "screen and (max-width: 767px)"

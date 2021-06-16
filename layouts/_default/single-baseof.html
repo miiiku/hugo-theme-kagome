@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+{{- partial "head.html" . -}}
+
+<body>
+  {{- partial "header.html" . -}}
+  <main id="content">
+    <!-- {{ partial "card/card-banner.html" . }} -->
+
+    <div class="single-container">
+      <div class="article-info">
+        <div class="article-header">
+          {{ partial "card/card-cover.html" . }}
+        </div>
+
+        <div class="article-content">
+          <div class="markdown-body">
+            {{ .Content }}
+          </div>
+        </div>
+
+        {{- block "main" . }}{{- end -}}
+      </div>
+
+      {{- block "widget" . -}}{{- end -}}
+    </div>
+  </main>
+
+  {{- partial "footer.html" . -}}
+
+  {{- partial "footer-script" . -}}
+</body>
+
+</html>

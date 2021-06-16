@@ -1,9 +1,13 @@
 <div class="swiper-item">
   <section class="swiper-card card-container small">
-    <div class="card-cover" {{ with .Params.cover }} style="background-image: url('{{ . }}')" {{ end }}></div>
+    {{ with .Params.cover }}
+    <div class="card-cover background-image-lazy" data-img="{{ . }}"></div>
+    {{ else }}
+    <div class="card-cover"></div>
+    {{ end }}
     <div class="card-text">
       <h4 class="card-text--title">{{ .Title }}</h4>
-      <p class="card-text--row">{{ .Params.desc }}</p>
+      <p class="card-text--row">{{ .Params.description }}</p>
     </div>
     <a href="{{ .RelPermalink | safeURL }}" class="card-link"></a>
   </section>

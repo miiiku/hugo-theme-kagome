@@ -38,7 +38,12 @@
   <link rel="stylesheet" href="{{ $style.Permalink }}">
 
   {{/* script */}}
-  {{ $js := resources.Get "js/main.js" }}
-  {{ $outFile := $js | resources.Minify }}
+  {{- $js := resources.Get "ts/main.ts" -}}
+  {{- $opts := dict "minify" hugo.IsProduction -}}
+  {{- $outFile := $js | js.Build $opts -}}
   <script src="{{ $outFile.Permalink }}"></script>
+
+  {{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
 </head>

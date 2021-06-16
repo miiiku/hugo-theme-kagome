@@ -9,7 +9,7 @@
   <div class="card-text">
     <h1 class="card-text--title">{{ .Title }}</h1>
     {{ if eq .Type "page" }}
-      {{ with .Params.desc }}
+      {{ with .Params.description }}
         <p class="card-text--row">{{ . }}</p>
       {{ end }}
     {{ else }}

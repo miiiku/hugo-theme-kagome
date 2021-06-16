@@ -38,6 +38,7 @@
   
       div {
         overflow: hidden;
+        line-height: var(--font-base-lh);
       }
   
       h4 {
@@ -52,6 +53,10 @@
   }
 }
 
+/** message page style */
+.message-content .disqus-box {
+  @include block-inner;
+}
 
 /** terms page style */
 .terms-container {

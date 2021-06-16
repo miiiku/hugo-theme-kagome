@@ -1,25 +1,8 @@
 {{/* pages single */}}
-{{ define "main" }}
-  <!-- {{ partial "card/card-banner.html" . }} -->
-  
-  <div class="single-container">
-    <div class="article-info">
-      <div class="article-header">
-        {{ partial "card/card-cover.html" . }}
-      </div>
-      
-      <div class="article-content">
-        <div class="markdown-body">
-          {{ .Content }}
-        </div>
-      </div>
-    </div>
+{{ define "widget" }}
+  <aside class="widget-info">
+    {{ partial "widget/widget-categories.html" . }}
 
-    <aside class="widget-info">
-      {{ partial "widget/widget-categories.html" . }}
-
-      {{ partial "widget/widget-tags.html" . }}
-    </aside>
-  </div>
-
+    {{ partial "widget/widget-tags.html" . }}
+  </aside>
 {{ end }}

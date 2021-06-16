@@ -13,11 +13,11 @@
       margin: 8px;
       transition: color 0.3s ease;
       font-weight: bolder;
-      font-size: 16px;
-      font-family: cursive, sans-serif;
+      font: var(--base-font);
+      font-weight: bolder;
 
       a {
-        color: #aeacb1;
+        color: var(--theme-text-primary);
         transition: transitions(color, 0.3s);
 
         &:hover {
@@ -26,7 +26,7 @@
       }
 
       span {
-        color: #131515;
+        color: var(--theme-text-low);
       }
     }
   }

@@ -44,7 +44,7 @@
 
     .more-link {
       color: var(--theme-text-stress);
-      font-size: var(--font-common-size);
+      font: var(--base-font);
       transition: transitions(color, 0.3s);
   
       &.center {
@@ -79,20 +79,14 @@
 
       &::marker {
         color: var(--theme-text-primary);
-        transition: transitions(color, 0.3s);
       }
 
       > a {
+        font: var(--base-font);
         color: var(--theme-text-primary);
         transition: transitions(color, 0.3s);
-      }
 
-      &:hover {
-        &::marker {
-          color: var(--theme-text-active);
-        }
-
-        > a {
+        &:hover {
           color: var(--theme-text-active);
         }
       }
@@ -110,7 +104,7 @@
     }
 
     a {
-      line-height: 1.6;
+      font: var(--base-font);
       color: var(--theme-text-active);
       font-weight: bolder;
       border-bottom: 2px solid #dde0e0;
@@ -169,6 +163,7 @@
     padding: 3px;
     margin: 3px;
     border-radius: 4px;
+    font: var(--base-font);
     color: var(--theme-text-primary);
     transition: transitions((color, background-color), 0.3s);
 
