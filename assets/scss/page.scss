@@ -9,8 +9,9 @@
 
   .link-item {
     @include mq-pc {
-      max-width: 50%;
+      max-width: 100%;
       min-width: 33.333%;
+      flex: 1 0 auto;
     }
 
     @include mq-mb {

@@ -993,23 +993,32 @@
 
 
 /** append style */
-.markdown-body .iframe-vidoe { /** iframe video */
+.markdown-body .iframe-video { /** iframe video */
+  margin-bottom: 20px;
   @include soft-box(6px, 3px);
 }
 
 .markdown-body .aplayer.aplayer-box { /** aplayer */
   margin: 0;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   background-color: var(--theme-bg-color);
   @include soft-box(6px, 3px);
 
   .aplayer-info .aplayer-controller .aplayer-time {
     line-height: normal;
   }
+
+  .aplayer-lrc:before {
+    background: linear-gradient(180deg, var(--theme-bg-color) 0, hsla(0,0%,100%,0));
+  }
+
+  .aplayer-lrc:after {
+    background: linear-gradient(180deg, hsla(0,0%,100%,0) 0, var(--theme-bg-color));
+  }
 }
 
 .markdown-body .dplayer.dplayer-box { /** dplayer */
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   @include soft-box(6px, 3px);
 }
 

@@ -33,13 +33,13 @@
 
   {{/* style */}}
   {{ $sass := resources.Get "scss/main.scss" }}
-  {{ $options := (dict "targetPath" "style.min.css" "outputStyle" "compressed") }}
+  {{ $options := (dict "targetPath" "assets/css/style.min.css" "outputStyle" "compressed") }}
   {{ $style := $sass | resources.ToCSS $options }}
   <link rel="stylesheet" href="{{ $style.Permalink }}">
 
   {{/* script */}}
   {{- $js := resources.Get "ts/main.ts" -}}
-  {{- $opts := dict "minify" hugo.IsProduction -}}
+  {{- $opts := dict "targetPath" "assets/js/main.min.js" "minify" hugo.IsProduction -}}
   {{- $outFile := $js | js.Build $opts -}}
   <script src="{{ $outFile.Permalink }}"></script>
 

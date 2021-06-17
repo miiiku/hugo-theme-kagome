@@ -6,9 +6,8 @@
     <div class="card-cover"></div>
     {{ end }}
     <div class="card-text">
-      <h4 class="card-text--title">{{ .Title }}</h4>
+      <a href="{{ .RelPermalink | safeURL }}"><h4 class="card-text--title">{{ .Title }}</h4></a>
       <p class="card-text--row">{{ .Params.description }}</p>
     </div>
-    <a href="{{ .RelPermalink | safeURL }}" class="card-link"></a>
   </section>
 </div>

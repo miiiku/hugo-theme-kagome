@@ -14,16 +14,13 @@
     function initaplayer(els) {
       let elsArr = Array.from(els);
       elsArr.forEach(el => {
-        let params = {
-          container: el,
-          audio: { ...el.dataset },
-          theme: "{{- $.Site.Params.aplayer.theme -}}",
-          autoplay: {{- $.Site.Params.aplayer.autoplay | safeJS -}},
-          loop: {{- $.Site.Params.aplayer.loop | safeJS -}},
-          mutex: {{- $.Site.Params.aplayer.mutex | safeJS -}}
+        let params = { container: el, audio: { ...el.dataset } }
+        let config = {{- $.Site.Params.aplayer }}
+        if (config) {
+          params = Object.assign(params, config)
         }
-        if (el.dataset.lrc) {
-          params['lrcType'] = {{- $.Site.Params.aplayer.lrcType -}}
+        if (el.dataset.lrcType) {
+          params['lrcType'] = Number(el.dataset.lrcType)
         }
         new APlayer(params);
       });
@@ -42,23 +39,13 @@
   function initDPlayer(els) {
     let elsArr = Array.from(els);
     elsArr.forEach(el => {
-      let url = el.dataset.url;
-      let cover = el.dataset.cover;
       let subtitle = el.dataset.subtitle;
-      let options = {
-        container: el,
-        video: { url: url, pic: cover },
-        theme: "{{- $.Site.Params.dplayer.theme -}}",
-        autoplay: {{- $.Site.Params.dplayer.autoplay -}},
-        loop: {{- $.Site.Params.dplayer.loop -}},
-        mutex: {{- $.Site.Params.dplayer.mutex -}},
+      let params = { container: el, video: { ...el.dataset } }
+      let config = {{- $.Site.Params.dplayer }}
+      if (config) {
+        params = Object.assign(params, config)
       }
-      if (subtitle) {
-        options.subtitle = {
-          url: el.dataset.subtitle,
-        }
-      }
-      new DPlayer(options);
+      new DPlayer(params);
     });
   }
 </script>

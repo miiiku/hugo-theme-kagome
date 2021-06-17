@@ -1,4 +1,4 @@
-{{- $url    := .Get "url"     | default (.Get 0) -}}
-{{- $cover   := .Get "cover"  | default (.Get 1) -}}
+{{- $url := .Get "url" | default (.Get 0) -}}
+{{- $pic := .Get "pic" | default (.Get 1) -}}
 
-<div class="dplayer-box" data-url="{{ $url }}" data-cover="{{ $cover }}"></div>
+<div class="dplayer-box" data-url="{{ $url }}" {{ with $pic }}data-pic="{{ . }}"{{ end }}></div>
