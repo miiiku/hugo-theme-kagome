@@ -41,6 +41,7 @@
     </div>
   {{ end }}
 
+  <div class="colour-bar"></div>
 
   <p>{{ .Site.Copyright | safeHTML }}</p>
 
@@ -61,3 +62,5 @@
     <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
   </p>
 </footer>
+
+{{- template "_internal/google_analytics.html" . -}}
