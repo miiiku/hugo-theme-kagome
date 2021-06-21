@@ -2,7 +2,7 @@
 {{ define "main" }}
   {{ partial "card/card-banner.html" . }}
 
-  <div class="article-list">
+  <div class="article-list block-container">
     {{ range .Pages }}
       {{ partial "card/card-article.html" . }}
     {{ end }}

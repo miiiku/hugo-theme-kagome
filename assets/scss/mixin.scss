@@ -1,9 +1,3 @@
-@mixin centerBG {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-};
-
 @mixin mq-pc {
   @media #{$mq-pc} {
     @content;
@@ -15,17 +9,6 @@
     @content;
   }
 }
-
-@mixin block-container ($padding: false) {
-  width: 100%;
-  max-width: var(--layout-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  
-  @if $padding {
-    padding: var(--layout-padding-x);
-  }
-};
 
 @mixin block-inner ($isSmall: false) {
   position: relative;

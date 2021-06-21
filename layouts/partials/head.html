@@ -2,14 +2,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{ $title := .Site.Title }}
-  {{ with .Params.Title }}
-  {{ $title = printf "%s 🌟 %s" . $title }}
-  {{ end }}
-  <title>{{- $title -}}</title>
 
-  {{ if or .Params.author .Site.Params.author }} {{/* author */}}
-    <meta name="author" content="{{- or .Params.author .Site.Params.author -}}">
+  {{ if or .Params.author .Site.Author.name }} {{/* author */}}
+    <meta name="author" content="{{- or .Params.author .Site.Author.name -}}">
   {{ end }}
 
   {{ if or .Keywords .Site.Params.keywords }} {{/* keywords */}}
@@ -27,6 +22,12 @@
   {{ if or .Description .Site.Params.description }} {{/* description*/}}
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
   {{ end }}
+  
+  {{ $title := .Site.Title }}
+  {{ with .Params.Title }}
+  {{ $title = printf "%s 🌟 %s" . $title }}
+  {{ end }}
+  <title>{{- $title -}}</title>
 
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/twitter_cards.html" . }}

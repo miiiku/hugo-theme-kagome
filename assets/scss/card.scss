@@ -100,7 +100,6 @@
 
 /** section swiper style */
 .section-swiper {
-  @include block-container(false);
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x proximity;
@@ -125,16 +124,10 @@
   }
 }
 
-/** article section style */
-.article-section {
-  @include block-container(true);
-}
-
 /** article lsit style */
 .article-list {
   display: flex;
   flex-wrap: wrap;
-  @include block-container;
 
   .article-card {
     height: 100%;
@@ -187,11 +180,6 @@
       background-image: linear-gradient(40deg, #ffb040, #ffd62e);
     }
   }
-}
-
-/** article-cover style */
-.article-header {
-  padding: var(--layout-padding-x);
 }
 
 /** article paging style */

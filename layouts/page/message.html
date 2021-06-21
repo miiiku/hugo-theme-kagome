@@ -8,6 +8,8 @@
 
 {{ define "widget" }}
 <aside class="widget-info">
+  {{ partial "widget/widget-author.html" . }}
+  
   {{ partial "widget/widget-categories.html" . }}
 
   {{ partial "widget/widget-tags.html" . }}

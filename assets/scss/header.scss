@@ -1,6 +1,4 @@
 .header-container {
-  @include block-container(true);
-
   .header-inner {
     @include block-inner;
     display: flex;

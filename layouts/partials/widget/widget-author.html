@@ -1,0 +1,13 @@
+<section class="aside-widget widget-author">
+  <div class="widget-body">
+    <div class="author-box {{ if $.Site.Author.avatar}}avatar{{ end }}">
+      {{ with $.Site.Author.avatar }}
+      <img class="author-avatar" src="{{ . }}" alt="{{ $.Site.Author.name }}">
+      {{ end }}
+      <h2 class="author-name text-ellipsis">{{ $.Site.Author.name }}</h2>
+      {{ with $.Site.Author.description }}
+      <p class="author-desc text-ellipsis">{{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+</section>

@@ -61,7 +61,6 @@
 
 /** terms page style */
 .terms-container {
-  @include block-container;
 
   .terms-inner {
     display: flex;

@@ -3,7 +3,7 @@
   {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
   {{ $pag := .Paginate ($section) }}
   
-  <div class="article-list">
+  <div class="article-list block-container">
     {{ range $pag.Pages }}
       {{ partial "card/card-article.html" . }}
     {{ end }}

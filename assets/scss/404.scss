@@ -1,0 +1,72 @@
+
+@import './var.scss';
+@import './theme.scss';
+@import './reset.scss';
+@import './mixin.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--theme-bg-primary);
+}
+
+.bg-text {
+  position: relative;
+  text-align: center;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+  font-size: 180px;
+  color: var(--theme-text-primary);
+  letter-spacing: 24px;
+  user-select: none;
+  
+  .text {
+    @include soft-text(3px);
+  }
+
+  .bg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: url('/image/404.png');
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: attr(x, y);
+  }
+}
+
+.btn-box {
+  margin: 20px 0;
+
+  a {
+    margin: 10px;
+    padding: 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    transition: transitions((background-color, box-shadow));
+    @include soft-box(6px, 4px);
+
+    &:hover {
+      @include soft-box(6px, 6px);
+    }
+
+    &:active {
+      @include soft-box--active(6px, 6px);
+    }
+
+    svg {
+      width: 32px;
+      height: 32px;
+      margin-right: 6px;
+    }
+  }
+}

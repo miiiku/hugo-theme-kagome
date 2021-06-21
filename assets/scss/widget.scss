@@ -8,16 +8,17 @@
     .title {
       display: flex;
       align-items: center;
+      padding-bottom: 6px;
 
       > svg {
         display: block;
+        margin-right: 6px;
         fill: var(--theme-text-stress);
         width: calc(var(--font-stress-size) + 6px);
         height: calc(var(--font-stress-size) + 6px);
       }
   
       > span {
-        margin-left: 6px;
         color: var(--theme-text-stress);
         font-weight: 500;
         font-size: var(--font-stress-size);
@@ -69,6 +70,44 @@
   }
 }
 
+/** 作者 widget */
+.widget-author .author-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 64px;
+  color: var(--theme-text-primary);
+
+  &.avatar {
+    padding-left: 74px;
+  }
+
+  .author-avatar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 64px;
+    height: 64px;
+    @include soft-box(50%, 5px);
+  }
+
+  .author-name {
+    height: 32px;
+    line-height: 32px;
+    font-weight: bolder;
+    font-size: var(--font-stress-size);
+  }
+
+  .author-desc {
+    height: 32px;
+    line-height: 32px;
+    border-top: 1px solid var(--theme-border-primary);
+  }
+}
+
+/** 目录TOC widget */
 .widget-toc {
   ul, ol {
     list-style: inherit;

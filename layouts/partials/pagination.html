@@ -1,6 +1,6 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 -}}
-  <div class="pagination-container">
+  <div class="pagination-container block-container">
 
     {{ $pagFirst  := $pag.First }}
     {{ $pagLast   := $pag.Last }}

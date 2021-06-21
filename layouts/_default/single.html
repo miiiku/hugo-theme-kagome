@@ -12,6 +12,8 @@
 
 {{ define "widget" }}
   <aside class="widget-info">
+    {{ partial "widget/widget-author.html" . }}
+
     {{ $toc_show_len := or .Site.Params.toc_show_len 0 }}
     {{ if and (gt .WordCount $toc_show_len ) (.Params.toc) }}
     {{ partial "widget/widget-toc.html" . }}
