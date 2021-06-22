@@ -31,14 +31,14 @@
     {{/* style */}}
     {{ $sass := resources.Get "scss/404.scss" }}
     {{ $options := (dict "targetPath" "assets/css/404.min.css" "outputStyle" "compressed") }}
-    {{ $style := $sass | resources.ToCSS $options }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint "sha256" }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 
     {{/* script */}}
     {{- $js := resources.Get "ts/404.ts" -}}
     {{- $opts := dict "targetPath" "assets/js/404.min.js" "minify" hugo.IsProduction -}}
-    {{- $outFile := $js | js.Build $opts -}}
-    <script src="{{ $outFile.Permalink }}"></script>
+    {{- $script := $js | js.Build $opts | resources.Fingerprint "sha256" -}}
+    <script src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&display=swap" rel="stylesheet">
@@ -71,5 +71,7 @@
       </a>
     </div>
   </main>
+
+  {{- template "_internal/google_analytics.html" . -}}
 </body>
 </html>

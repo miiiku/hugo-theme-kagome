@@ -42,8 +42,10 @@
   {{ end }}
 
   <div class="colour-bar"></div>
-
-  <p>{{ .Site.Copyright | safeHTML }}</p>
+  
+  {{ with .Site.Copyright }}
+  <p>{{ . | safeHTML }}</p>
+  {{ end }}
 
   {{ with .Site.Params.Beian }}
     <p><a href="http://www.miitbeian.gov.cn" target="_blank">{{ . }}</a></p>
@@ -53,13 +55,13 @@
     Powered by
     <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
     Theme - 
-    <a href="https://github.com/miiiku/card-block" target="_blank" rel="noopener noreferrer author">card-block</a>
+    <a href="https://github.com/miiiku/hugo-theme-kagome" target="_blank" rel="noopener noreferrer author">kagome</a>
   </p>
 
   <p>
-    <a href="javascript:;" id="theme-light">🌞 浅色</a>
-    <a href="javascript:;" id="theme-dark">🌛 深色</a>
-    <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    <a href="javascript:;" id="theme-light">🌞 {{ i18n "theme.light" }}</a>
+    <a href="javascript:;" id="theme-dark">🌛 {{ i18n "theme.dark" }}</a>
+    <a href="javascript:;" id="theme-auto">🤖️ {{ i18n "theme.auto" }}</a>
   </p>
 </footer>
 

@@ -35,15 +35,15 @@
   {{/* style */}}
   {{ $sass := resources.Get "scss/main.scss" }}
   {{ $options := (dict "targetPath" "assets/css/style.min.css" "outputStyle" "compressed") }}
-  {{ $style := $sass | resources.ToCSS $options }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}">
+  {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint "sha256" }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 
   {{/* script */}}
   {{- $js := resources.Get "ts/main.ts" -}}
   {{- $opts := dict "targetPath" "assets/js/main.min.js" "minify" hugo.IsProduction -}}
-  {{- $outFile := $js | js.Build $opts -}}
-  <script src="{{ $outFile.Permalink }}"></script>
-
+  {{- $script := $js | js.Build $opts | resources.Fingerprint "sha256" -}}
+  <script src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+  
   {{ with .OutputFormats.Get "rss" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}

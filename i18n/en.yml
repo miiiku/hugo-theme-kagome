@@ -1,0 +1,43 @@
+categories:
+  other: Categories
+
+tags:
+  other: Tags
+
+toc:
+  other: Toc
+
+related_posts:
+  other: Related Posts
+
+show_all:
+  other: show all
+
+search:
+  other: Search
+
+comment:
+  other: Comments
+
+newer:
+  other: Newer
+
+older:
+  other: Older
+
+theme:
+  light:
+    other: light
+
+  dark:
+    other: dark
+
+  auto: 
+    other: auto
+
+total_count:
+  other: "{{ . }} totals"
+
+children_total_count:
+  other: "{{ . }} totals children"
+  

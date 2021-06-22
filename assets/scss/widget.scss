@@ -9,14 +9,6 @@
       display: flex;
       align-items: center;
       padding-bottom: 6px;
-
-      > svg {
-        display: block;
-        margin-right: 6px;
-        fill: var(--theme-text-stress);
-        width: calc(var(--font-stress-size) + 6px);
-        height: calc(var(--font-stress-size) + 6px);
-      }
   
       > span {
         color: var(--theme-text-stress);

@@ -1,0 +1,42 @@
+categories:
+  other: 分類
+
+tags:
+  other: 聚合標籤
+
+toc:
+  other: 目錄
+  
+related_posts:
+  other: 最新文章
+
+show_all:
+  other: 顯示全部
+
+search:
+  other: 搜尋
+
+comment:
+  other: 留言
+
+newer: 
+  other: 上壹篇
+
+older: 
+  other: 下壹篇
+
+theme:
+  light:
+    other: 淺色
+
+  dark:
+    other: 深色
+
+  auto: 
+    other: 自動
+
+total_count:
+  other: 總計{{ . }}條
+
+children_total_count:
+  other: 總計{{ . }}個子模塊

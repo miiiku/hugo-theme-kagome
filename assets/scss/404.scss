@@ -52,6 +52,7 @@
     padding: 6px 12px;
     display: inline-flex;
     align-items: center;
+    color: var(--theme-text-primary);
     transition: transitions((background-color, box-shadow));
     @include soft-box(6px, 4px);
 

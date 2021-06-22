@@ -1,0 +1,42 @@
+categories: 
+  other: 分类
+
+tags:
+  other: 聚合标签
+
+toc:
+  other: 目录
+
+related_posts:
+  other: 相关文章
+
+show_all:
+  other: 显示全部
+
+search:
+  other: 搜索
+
+comment:
+  other: 留言
+
+newer:
+  other: 上一篇
+  
+older:
+  other: 下一篇
+
+theme:
+  light:
+    other: 浅色
+
+  dark:
+    other: 深色
+
+  auto: 
+    other: 自动
+
+total_count:
+  other: 总计{{ . }}条
+
+children_total_count:
+  other: 总计{{ . }}个子模块

@@ -12,7 +12,7 @@
         {{ with .Params.description }}
           <p class="card-text--row">{{ . }}</p>
         {{ end }}
-        <p class="card-text--row">total {{ len .Data.Terms }}</p>
+        <p class="card-text--row">{{ i18n "total_count" (len .Data.Terms) }}</p>
       </div>
     {{ end }}
 
@@ -27,7 +27,7 @@
         {{ with .Params.description }}
           <p class="card-text--row">{{ . }}</p>
         {{ end }}
-        <p class="card-text--row">total {{ len .Data.Pages }}</p>
+        <p class="card-text--row">{{ i18n "total_count" (len .Data.Pages) }}</p>
       </div>
     {{ end }}
 
@@ -88,11 +88,11 @@
         {{ end }}
 
         {{ with len .RegularPages }} {{/* pages */}}
-          <p class="card-text--row">{{ . }} totals</p>
+          <p class="card-text--row">{{ i18n "total_count" . }}</p>
         {{ end }}
         
         {{ with len .Sections }} {{/* children sections */}}
-          <p class="card-text--row">{{ . }} totals children</p>
+          <p class="card-text--row">{{ i18n "children_total_count" . }}</p>
         {{ end }}
       </div>
     {{ end }}

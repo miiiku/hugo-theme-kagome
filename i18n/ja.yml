@@ -1,0 +1,43 @@
+categories:
+  other: カテゴリ
+
+tags:
+  other: タグ
+
+toc:
+  other: 目次
+
+related_posts:
+  other: 関連の投稿
+
+show_all:
+  other: すべてを表示
+
+search:
+  other: 検索
+
+comment:
+  other: コメント
+
+newer:
+  other: 次の記事
+
+older:
+  other: 前の記事
+
+theme:
+  light:
+    other: 明るい
+
+  dark:
+    other: 暗黒
+
+  auto: 
+    other: 自動
+
+total_count:
+  other: "合計{{ . }}つ"
+
+children_total_count:
+  other: "合計{{ . }}サブモジュール"
+  
