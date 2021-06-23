@@ -1,20 +1,28 @@
 # kagome 一个卡片风格的Hugo主题
 
+### Why is Kagome?
+
+因为在开发这个主题的期间，一直在重温`犬夜叉`，真的很喜欢里面女主`日暮戈薇`，所以这里用了她的名字`kagome`～～
+
+而站点域名则使用了`桔梗`的名字`kikyo` ~~我全都要~~
+
 ### Example Site
 
 **[DEMO](https://kikyo.cc)**
 
 ### Document
 
-- [config.toml相关配置](https://kikyo.cc/posts/202106091132/)
+- [config.toml相关配置](https://kikyo.cc/docs/202106091132/)
 
-- [Front Matter 相关参数说明](https://kikyo.cc/posts/202106180929/)
+- [Front Matter 相关参数说明](https://kikyo.cc/docs/202106180929/)
 
-- [插入公式，图片与Widget目录显示](https://kikyo.cc/posts/202105251659/)
+- [插入公式，图片与Widget目录显示](https://kikyo.cc/docs/202105251659/)
 
-- [播放音频与视频，shortcode使用说明](https://kikyo.cc/posts/202105261132/)
+- [播放音频与视频，shortcode使用说明](https://kikyo.cc/docs/202105261132/)
 
-- [i18n多语言配置](https://kikyo.cc/posts/202106221751/)
+- [i18n多语言配置](https://kikyo.cc/docs/202106221751/)
+
+- [如何丰富Banner信息](https://kikyo.cc/docs/202106230952/)
 
 ### Install
 
