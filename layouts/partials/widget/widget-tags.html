@@ -8,7 +8,7 @@
     <div class="tags-list">
       {{ $count := or .Site.Params.widget.tags_count 12 }}
       {{ range first $count .Site.Taxonomies.tags.ByCount }}
-        <a href="{{ .Page.Permalink }}" data-count="{{ .Count }}" >{{ .Page.Title }}</a>
+        <a href="{{ .Page.Permalink }}" data-count="{{ .Count }}" >{{ .Page.Data.Term }}</a>
       {{ end }}
     </div>
   </div>

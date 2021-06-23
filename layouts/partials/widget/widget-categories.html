@@ -9,7 +9,7 @@
       {{ $count := or .Site.Params.widget.categories_count 6 }}
       {{ range first $count .Site.Taxonomies.categories.ByCount }}
         <li>
-          <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+          <a href="{{ .Page.Permalink }}">{{ .Page.Data.Term }}</a>
           <span>{{ len .Page.Pages }}</span>
         </li>
       {{ end }}
