@@ -1,4 +1,4 @@
-# kagome 一个卡片风格的Hugo主题
+# kagome 一个卡片类拟态风格的Hugo主题
 
 ### Why is Kagome?
 
@@ -11,6 +11,8 @@
 **[DEMO](https://kikyo.cc)**
 
 ### Document
+
+doc list: [docs](https://kikyo.cc/docs/)
 
 - [config.toml相关配置](https://kikyo.cc/docs/202106091132/)
 
