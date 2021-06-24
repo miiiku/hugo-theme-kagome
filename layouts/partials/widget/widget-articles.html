@@ -1,3 +1,14 @@
+{{ $articles := where (where .Site.RegularPages "Params.categories" "intersect" .Params.categories) ".File.UniqueID" "ne" .File.UniqueID }}
+
+{{ if eq (len $articles) 0 }}
+{{ $articles = where (where .Site.RegularPages "Params.tags" "intersect" .Params.tags) ".File.UniqueID" "ne" .File.UniqueID }}
+{{ end }}
+
+{{ if eq (len $articles) 0 }}
+{{ $articles = where (where .Site.RegularPages "Section" "ne" "") ".File.UniqueID" "ne" .File.UniqueID }}
+{{ end }}
+
+{{ if gt (len $articles) 0 }}
 <section class="aside-widget widget-articles">
   <h2 class="widget-header">
     <div class="title">
@@ -5,13 +16,6 @@
     </div>
   </h2>
   <div class="widget-body">
-    {{ $articles := where (where .Site.RegularPages "Params.categories" "intersect" .Params.categories) ".File.UniqueID" "ne" .File.UniqueID }}
-    {{ if eq (len $articles) 0 }}
-      {{ $articles = where (where .Site.RegularPages "Params.tags" "intersect" .Params.tags) ".File.UniqueID" "ne" .File.UniqueID }}
-    {{ end }}
-    {{ if eq (len $articles) 0 }}
-      {{ $articles = where (where .Site.RegularPages "Section" "ne" "") ".File.UniqueID" "ne" .File.UniqueID }}
-    {{ end }}
     <ul class="post-list">
       {{ $count := or .Site.Params.widget.articles_count 6 }}
       {{ range first $count $articles }}
@@ -20,3 +24,4 @@
     </ul>
   </div>
 </section>
+{{ end }}

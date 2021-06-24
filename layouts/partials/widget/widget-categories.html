@@ -1,3 +1,8 @@
+{{ $categories := .Site.Taxonomies.categories.ByCount }}
+{{ $count := or .Site.Params.widget.categories_count 6 }}
+{{ $len := len $categories }}
+
+{{ if gt $len 0 }}
 <section class="aside-widget widget-categories">
   <h2 class="widget-header">
     <div class="title">
@@ -6,8 +11,7 @@
   </h2>
   <div class="widget-body">
     <ul class="categories-list">
-      {{ $count := or .Site.Params.widget.categories_count 6 }}
-      {{ range first $count .Site.Taxonomies.categories.ByCount }}
+      {{ range first $count $categories }}
         <li>
           <a href="{{ .Page.Permalink }}">{{ .Page.Data.Term }}</a>
           <span>{{ len .Page.Pages }}</span>
@@ -16,7 +20,7 @@
     </ul>
   </div>
 
-  {{ if gt (len .Site.Taxonomies.categories) $count }}
+  {{ if gt $len $count }}
     {{ $all_page := $.Site.GetPage (printf "/%s" "categories") }}
     <div class="widget-footer">
       <a href="{{ $all_page.Permalink }}" class="more-link">
@@ -28,3 +32,4 @@
     </div>
   {{ end }}
 </section>
+{{ end }}

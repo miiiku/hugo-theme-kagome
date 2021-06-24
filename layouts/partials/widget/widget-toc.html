@@ -1,3 +1,5 @@
+{{ $toc_show_len := or .Site.Params.toc_show_len 0 }}
+{{ if and (gt .WordCount $toc_show_len ) (.Params.toc) }}
 <section class="aside-widget widget-toc">
   <h2 class="widget-header">
     <div class="title">
@@ -8,3 +10,4 @@
     {{ .TableOfContents }}
   </div>
 </section>
+{{ end }}

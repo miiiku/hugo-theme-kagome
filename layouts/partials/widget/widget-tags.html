@@ -1,3 +1,8 @@
+{{ $tags := .Site.Taxonomies.tags.ByCount }}
+{{ $count := or .Site.Params.widget.tags_count 12 }}
+{{ $len := len $tags }}
+
+{{ if gt $len 0 }}
 <section class="aside-widget widget-tags">
   <h2 class="widget-header">
     <div class="title">
@@ -6,14 +11,13 @@
   </h2>
   <div class="widget-body">
     <div class="tags-list">
-      {{ $count := or .Site.Params.widget.tags_count 12 }}
-      {{ range first $count .Site.Taxonomies.tags.ByCount }}
+      {{ range first $count $tags }}
         <a href="{{ .Page.Permalink }}" data-count="{{ .Count }}" >{{ .Page.Data.Term }}</a>
       {{ end }}
     </div>
   </div>
 
-  {{ if gt (len .Site.Taxonomies.tags) $count }}
+  {{ if gt $len $count }}
     {{ $all_page := $.Site.GetPage (printf "/%s" "tags") }}
     <div class="widget-footer">
       <a href="{{ $all_page.Permalink }}" class="more-link center">
@@ -25,3 +29,4 @@
     </div>
   {{ end }}
 </section>
+{{ end }}
