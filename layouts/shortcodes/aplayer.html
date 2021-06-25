@@ -1,15 +1,28 @@
 {{- $url    := .Get "url"     | default (.Get 0) -}}
 {{- $name   := .Get "name"    | default (.Get 1) -}}
 {{- $artist := .Get "artist"  | default (.Get 2) -}}
-{{- $cover  := .Get "cover" -}}
-{{- $lrc    := .Get "lrc" -}}
-{{- $lrcType:= .Get "lrcType" -}}
+
+{{- $cover    := .Get "cover"     | default $.Site.Params.aplayer.cover -}}
+{{- $lrc      := .Get "lrc"       | default $.Site.Params.aplayer.lrc -}}
+{{- $lrcType  := .Get "lrcType"   | default $.Site.Params.aplayer.lrcType -}}
+
+{{- $theme    := .Get "theme"     | default $.Site.Params.aplayer.theme -}}
+{{- $autoplay := .Get "autoplay"  | default $.Site.Params.aplayer.autoplay -}}
+{{- $loop     := .Get "loop"      | default $.Site.Params.aplayer.loop -}}
+{{- $mutex    := .Get "mutex"     | default $.Site.Params.aplayer.mutex -}}
 <div
   class="aplayer-box"
   data-url="{{ $url }}"
   data-name="{{ $name }}"
   data-artist="{{ $artist }}"
-  {{ with $cover }}data-cover="{{ . }}"{{ end }}
-  {{ with $lrc }}data-lrc="{{ . }}"{{ end }}
-  {{ with $lrcType }}data-lrc-type="{{ . }}"{{ end }}
+
+  {{ with $cover -}}   data-cover="{{ . }}"     {{- end }}
+  {{ with $lrc -}}     data-lrc="{{ . }}"       {{- end }}
+  
+  {{ with $lrcType -}} config-lrc-type="{{ . }}"{{- end }}
+  {{ with $theme -}}   config-theme="{{ . }}"   {{- end }}
+  {{ with $loop -}}    config-loop="{{ . }}"    {{- end }}
+
+  {{ if ne $autoplay nil -}}  {{ printf "config-autoplay=%t" $autoplay | safeHTMLAttr }}  {{- end }}
+  {{ if ne $mutex nil -}}     {{ printf "config-mutex =%t" $mutex | safeHTMLAttr }}       {{- end }}
 ></div>

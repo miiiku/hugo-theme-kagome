@@ -1,4 +1,22 @@
 {{- $url := .Get "url" | default (.Get 0) -}}
 {{- $pic := .Get "pic" | default (.Get 1) -}}
 
-<div class="dplayer-box" data-url="{{ $url }}" {{ with $pic }}data-pic="{{ . }}"{{ end }}></div>
+{{- $theme    := .Get "theme"     | default $.Site.Params.dplayer.theme -}}
+{{- $autoplay := .Get "autoplay"  | default $.Site.Params.dplayer.autoplay -}}
+{{- $loop     := .Get "loop"      | default $.Site.Params.dplayer.loop -}}
+{{- $mutex    := .Get "mutex"     | default $.Site.Params.dplayer.mutex -}}
+
+
+<a href=""></a>
+
+<div
+  class="dplayer-box"
+  data-url="{{ $url }}"
+
+  {{ with $pic -}}            data-pic="{{ . }}"        {{- end }}
+  {{ with $theme -}}          config-theme="{{ . }}"    {{- end }}
+  
+  {{ if ne $autoplay nil -}}  {{ printf "config-autoplay=%t" $autoplay | safeHTMLAttr }}  {{- end }}
+  {{ if ne $loop nil -}}      {{ printf "config-loop=%t" $loop | safeHTMLAttr }}          {{- end }}
+  {{ if ne $mutex nil -}}     {{ printf "config-mutex =%t" $mutex | safeHTMLAttr }}       {{- end }}
+></div>
