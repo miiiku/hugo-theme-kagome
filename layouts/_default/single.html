@@ -1,5 +1,16 @@
 {{/* post single */}}
 {{ define "main" }}
+  {{ $SingleDisable  := .Params.Disable_comment }}               {{/* 页面内控制是否禁用Disqus */}}
+  {{ $ConfigDisable  := .Site.Config.Privacy.Disqus.Disable }}   {{/* config配置项控制是否禁用Disqus */}} 
+  {{ $Enable := $SingleDisable }}
+  {{ if eq $Enable nil }}
+  {{ $Enable = $ConfigDisable }}
+  {{ end }}
+
+  {{ if ne $Enable true }}
+  {{- partial "disqus.html" . -}}
+  {{ end }}
+
   <div class="article-paging">
     {{ with .NextInSection }}
       {{ partial "card/card-paging.html" . }}

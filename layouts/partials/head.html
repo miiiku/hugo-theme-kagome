@@ -39,7 +39,7 @@
   {{ $sass := resources.Get "scss/main.scss" }}
   {{ $options := dict "targetPath" "assets/css/style.min.css" "outputStyle" "compressed" }}
   {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint "sha256" }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" hugo.BuildDate>
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 
   {{/* script */}}
   {{- $js := resources.Get "ts/main.ts" -}}

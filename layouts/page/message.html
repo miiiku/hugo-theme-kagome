@@ -1,8 +1,10 @@
 {{/* pages layout message */}}
 {{ define "main" }}
 <div class="message-content padding-layout">
-  <!-- {{ template "_internal/disqus.html" . }} -->
-  <div class="disqus-box">{{- partial "test.html" . -}}</div>
+  {{ $SingleDisable  := .Params.Disable_comment }} {{/* 页面内控制是否禁用Disqus */}}
+  {{ if ne $SingleDisable true }}
+  {{- partial "disqus.html" . -}}
+  {{ end }}
 </div>
 {{ end }}
 

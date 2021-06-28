@@ -6,7 +6,7 @@ license = "MIT"
 licenselink = "https://github.com/miiiku/hugo-theme-kagome/blob/main/LICENSE"
 description = "一个卡片风格的Hugo主题"
 homepage = "https://github.com/miiiku/hugo-theme-kagome"
-tags = ['card', 'responsive', 'theme', 'blog']
+tags = ['card', 'responsive', 'mobile', 'Neumorphism', 'blog']
 features = ['posts', 'flex', 'card', 'Neumorphism', 'Soft UI', 'widgets']
 min_version = "0.83.1"
 
