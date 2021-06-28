@@ -1,5 +1,7 @@
 # kagome 一个卡片类拟态风格的Hugo主题
 
+![Kagome](images/screenshot.png)
+
 ### Why is Kagome?
 
 因为在开发这个主题的期间，一直在重温`犬夜叉`，真的很喜欢里面女主`日暮戈薇`，所以这里用了她的名字`kagome`～～
@@ -8,7 +10,7 @@
 
 ### Example Site
 
-**[DEMO](https://kikyo.cc)**
+**[Example Site](https://kagome-example-site.vercel.app/)** | **[DEMO](https://kikyo.cc)**
 
 ### Document
 
