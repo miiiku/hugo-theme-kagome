@@ -11,7 +11,7 @@
       </div>
       <div class="header-nav--list">
         {{ range .Site.Menus.main }}
-          <a class="list-item" href="{{ .URL }}">{{ .Name }}</a>
+          <a class="list-item" href="{{ .URL | safeURL }}" title="{{ .Title }}">{{ .Name }}</a>
         {{ end }}
       </div>
     </nav>

@@ -50,7 +50,7 @@ git submodule add https://github.com/miiiku/hugo-theme-kagome.git ./themes/kagom
 
 #### 应用当前主题为`kagome`
 
-```toml
+```base
 echo theme = \"kagome\" >> config.toml
 ```
 

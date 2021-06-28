@@ -22,6 +22,9 @@
   {{ if or .Description .Site.Params.description }} {{/* description*/}}
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
   {{ end }}
+
+  {{ hugo.Generator }}
+  
   
   {{ $title := .Site.Title }}
   {{ with .Params.Title }}
@@ -34,9 +37,9 @@
 
   {{/* style */}}
   {{ $sass := resources.Get "scss/main.scss" }}
-  {{ $options := (dict "targetPath" "assets/css/style.min.css" "outputStyle" "compressed") }}
+  {{ $options := dict "targetPath" "assets/css/style.min.css" "outputStyle" "compressed" }}
   {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint "sha256" }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" hugo.BuildDate>
 
   {{/* script */}}
   {{- $js := resources.Get "ts/main.ts" -}}
@@ -45,6 +48,6 @@
   <script src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>
   
   {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 </head>

@@ -1,0 +1,100 @@
+baseURL = "https://example.com"
+languageCode = "en-us"
+title = "梨花细雨不见鹿"
+theme = "kagome"
+paginate = 7
+copyright = "© 2021 <a href=\"https://github.com/miiiku/hugo-theme-kagome\">kagome</a>."
+hasCJKLanguage = true
+
+# 作者信息
+[author]
+  name = "Sukoshi"
+  email = "guanquanhong@163.com"
+  description = "梅花鹿的角叫鹿角"
+  avatar = "https://s.gravatar.com/avatar/7b5a0b07a98895278cfa862b1f32ae8f?s=200&r=g&d=retro"
+
+[menu]
+  # 顶部导航栏
+  [[menu.main]]
+    identifier = "/"
+    name = "HOME"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "/posts"
+    name = "POSTS"
+    url = "/posts"
+    weight = 2
+  [[menu.main]]
+    identifier = "/message"
+    name = "MESSAGE"
+    url = "/message"
+    weight = 3
+  [[menu.main]]
+    identifier = "/link"
+    name = "LINK"
+    url = "/link"
+    weight = 4
+  
+  # 底部社交图标
+  [[menu.social]]
+    identifier = "github"
+    name = "github"
+    url = "https://github.com/miiiku"
+    weight = 1
+  [[menu.social]]
+    identifier = "twitter"
+    name = "twitter"
+    url = "https://twitter.com/guanquanhong"
+    weight = 2
+  [[menu.social]]
+    identifier = "instagram"
+    name = "instagram"
+    url = "https://www.instagram.com/sukoshi_dayo/"
+    weight = 3
+  [[menu.social]]
+    identifier = "weibo"
+    name = "weibo"
+    url = "https://weibo.com/u/5561168966"
+    weight = 4
+  [[menu.social]]
+    identifier = "zhihu"
+    name = "zhihu"
+    url = "https://www.zhihu.com/people/miku-84"
+    weight = 5
+
+# URL格式
+[permalinks]
+  posts = "/:section/:year:month:day:15:04/"
+  files = "/:section/:year:month:day:15:04/"
+  docs = "/:section/:year:month:day:15:04/"
+
+# 主题相关配置项
+[params]
+  keywords = ['theme', 'kagome']
+  description = ""
+  mainSections = ["posts"]
+  # 国内备案号
+  beian = ""
+  # TOC目录出现字符长度限制
+  toc_show_len = 300
+
+  [params.widget]
+    # 相关文章推荐数量
+    articles_count = 6
+    # 分类相关显示数量
+    categories_count = 6
+    # 标签相关显示数量
+    tags_count = 12
+
+  [params.aplayer]
+    theme = "#b7daff"
+    autoplay = false
+    loop = "none"
+    mutex = true
+
+  [params.dplayer]
+    theme = "#b7daff"
+    autoplay = false
+    loop = false
+    mutex = true
