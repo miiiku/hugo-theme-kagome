@@ -13,7 +13,6 @@
 
   .disqus-box {
     @include block-inner;
-    margin: var(--layout-padding-x);
   }
 
   .widget-info {
