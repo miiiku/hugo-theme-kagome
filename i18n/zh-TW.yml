@@ -40,3 +40,9 @@ total_count:
 
 children_total_count:
   other: 總計{{ . }}個子模塊
+
+404_page:
+  btn1:
+    other: 回到首頁
+  btn2:
+    other: 站點地圖

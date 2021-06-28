@@ -40,4 +40,10 @@ total_count:
 
 children_total_count:
   other: "合計{{ . }}サブモジュール"
+
+404_page:
+  btn1:
+    other: ホームホーム
+  btn2:
+    other: サイトマップ
   

@@ -40,3 +40,9 @@ total_count:
 
 children_total_count:
   other: 总计{{ . }}个子模块
+
+404_page:
+  btn1:
+    other: 回到首页
+  btn2:
+    other: 站点地图

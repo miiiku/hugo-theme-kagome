@@ -40,4 +40,10 @@ total_count:
 
 children_total_count:
   other: "{{ . }} totals children"
+
+404_page:
+  btn1:
+    other: Go Home
+  btn2:
+    other: Site Map
   
