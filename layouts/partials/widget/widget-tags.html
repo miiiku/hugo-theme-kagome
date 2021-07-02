@@ -3,7 +3,7 @@
 {{ $len := len $tags }}
 
 {{ if gt $len 0 }}
-<section class="aside-widget widget-tags">
+<section class="aside-widget widget-tags content-padding-large soft-size--large soft-style--box">
   <h2 class="widget-header">
     <div class="title">
       <span>{{ i18n "tags" }}</span>
@@ -12,7 +12,7 @@
   <div class="widget-body">
     <div class="tags-list">
       {{ range first $count $tags }}
-        <a href="{{ .Page.Permalink }}" data-count="{{ .Count }}" >{{ .Page.Data.Term }}</a>
+        <a href="{{ .Page.Permalink }}" data-count="{{ .Count }}" class="soft-size--small soft-style--hover soft-style--active">{{ .Page.Data.Term }}</a>
       {{ end }}
     </div>
   </div>

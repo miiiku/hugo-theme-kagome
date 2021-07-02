@@ -3,10 +3,10 @@
 <div class="links-content">
   <div class="links-wrap">
     {{ range .Site.Data.link }}
-    <div class="link-item padding-layout">
-      <a href="{{ .link | safeURL }}" target="_blank" rel="noopener" class="hover active">
+    <div class="link-item layout-padding">
+      <a href="{{ .link | safeURL }}" target="_blank" rel="noopener" class="content-padding-primary soft-size--primary soft-style--box">
         {{ if .cover }}
-        <img src="{{ .cover | safeURL }}" alt="{{ .name }}">
+        <img src="{{ .cover | safeURL }}" alt="{{ .name }}" class="soft-size--round soft-style--box">
         {{ end }}
         <div>
           <h4 class="text-ellipsis">{{ .name }}</h4>

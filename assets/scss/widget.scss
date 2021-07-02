@@ -1,5 +1,4 @@
 .aside-widget {
-  @include block-inner;
   margin: var(--layout-padding-x);
 
   .widget-header {
@@ -17,7 +16,7 @@
         letter-spacing: 0.6px;
         text-transform: uppercase;
         transition: transitions(color, 0.3s);
-        @include soft-text(2px);
+        @include soft-text;
       }
     }
 
@@ -82,7 +81,6 @@
     left: 0;
     width: 64px;
     height: 64px;
-    @include soft-box(50%, 5px);
   }
 
   .author-name {
@@ -187,20 +185,13 @@
 
 /** 标签列表 widget */
 .widget-tags .tags-list {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
 
   > a {
-    display: inline-block;
-    padding: 3px;
-    margin: 3px;
-    border-radius: 4px;
-    font: var(--base-font);
+    display: block;
+    padding: 8px 10px;
     color: var(--theme-text-primary);
-    transition: transitions((color, background-color), 0.3s);
-
-    &:hover {
-      color: var(--theme-text-light);
-      background-color: var(--theme-text-active);
-    }
   }
 }

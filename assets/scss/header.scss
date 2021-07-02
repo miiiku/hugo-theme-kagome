@@ -1,6 +1,6 @@
 .header-container {
   .header-inner {
-    @include block-inner;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     white-space: nowrap;
     color: var(--theme-text-primary);
     transition: transitions((color, text-shadow), 0.3s);
-    @include soft-text(2px);
+    @include soft-text;
   }
 
   .header-nav {
@@ -101,15 +101,6 @@
 
       .list-item {
         padding: 8px 10px;
-        transition: transitions((color, border-radius, box-shadow, background-color, background-image));
-  
-        &:hover {
-          @include soft-box(6px, 3px);
-        }
-  
-        &:active {
-          @include soft-box--active(6px, 3px);
-        }
       }
     }
   }
@@ -119,7 +110,7 @@
 @media #{$mq-mb} {
   .header-container {
     .header-inner {
-      overflow: inherit;
+      overflow: inherit !important;
     }
     .header-nav--btn {
       display: block;
@@ -128,19 +119,43 @@
       display: block;
     }
     .header-nav--list {
+      overflow: inherit !important;
       display: none;
       position: absolute;
       z-index: 9;
       top: 100%;
-      right: 20px;
-      padding: 6px 0;
+      right: 28px;
       transform: translateY(-20px);
-      @include soft-box(8px, 2px);
+
+      &::before, &::after {
+        position: absolute;
+        top: 0;
+        right: 12px;
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        transform-origin: center;
+        transform: translate(50%, -50%) rotate(-45deg);
+        background-color: var(--theme-bg-primary);
+      }
+
+      &::before {
+        box-shadow:
+          1px 1px calc(1px * 2) var(--theme-bg-shadow),
+          calc(-1 * 1px) calc(-1 * 1px) calc(1px * 2) var(--theme-bg-high);
+      }
+
+      & > div {
+        @include soft-box(var(--soft-small-radius));
+        position: relative;
+        padding: 6px 8px;
+      }
 
       a.list-item {
         display: block;
         text-align: left;
-        padding: 6px 12px;
+        padding: 14px 12px;
         transition: transitions(color);
       }
     }

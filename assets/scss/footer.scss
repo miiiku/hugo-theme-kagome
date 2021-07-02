@@ -16,7 +16,6 @@
       width: 45px;
       height: 45px;
       padding: 10px;
-      @include soft-box(12px, 4px);
 
       &:hover svg.icon {
         fill: var(--theme-text-stress);

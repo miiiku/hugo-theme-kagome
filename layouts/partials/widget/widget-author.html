@@ -1,9 +1,9 @@
 {{ if $.Site.Author }}
-<section class="aside-widget widget-author">
+<section class="aside-widget widget-author content-padding-large soft-size--large soft-style--box">
   <div class="widget-body">
     <div class="author-box {{ if $.Site.Author.avatar }}avatar{{ end }}">
       {{ with $.Site.Author.avatar }}
-      <img class="author-avatar" src="{{ . }}" alt="{{ $.Site.Author.name }}">
+      <img class="author-avatar soft-size--round soft-style--box" src="{{ . }}" alt="{{ $.Site.Author.name }}">
       {{ end }}
       <h2 class="author-name text-ellipsis">{{ $.Site.Author.name }}</h2>
       {{ with $.Site.Author.description }}

@@ -1,13 +1,7 @@
 /** card common style */
 .card-container {
-  &.large {
-    @include block-inner;
-  }
-
-  &.small {
-    @include block-inner(true);
-  }
-
+  position: relative;
+  
   &.img {
     padding: 0;
 

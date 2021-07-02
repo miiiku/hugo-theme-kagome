@@ -24,7 +24,6 @@
       align-items: center;
       transition: transitions(color);
       height: 100%;
-      @include block-inner(true);
   
       img {
         display: block;
@@ -34,7 +33,6 @@
         margin-right: 12px;
         object-fit: cover;
         flex: 0 0 46px;
-        @include soft-box(50%, 8px);
       }
   
       div {
@@ -74,7 +72,6 @@
       }
 
       & > a {
-        @include block-inner(true);
         @include mq-pc {
           padding-right: 100px;
         }

@@ -24,7 +24,7 @@
   user-select: none;
   
   .text {
-    @include soft-text(3px);
+    @include soft-text;
   }
 
   .bg {
@@ -54,15 +54,6 @@
     align-items: center;
     color: var(--theme-text-primary);
     transition: transitions((background-color, box-shadow));
-    @include soft-box(6px, 4px);
-
-    &:hover {
-      @include soft-box(6px, 6px);
-    }
-
-    &:active {
-      @include soft-box--active(6px, 6px);
-    }
 
     svg {
       width: 32px;

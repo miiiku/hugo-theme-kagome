@@ -21,7 +21,7 @@
     themeAuto.addEventListener('click', () => switchTheme('auto'))
 
     /** background image lazy */
-    const lazyBackgrounds = querySelectorArrs('.background-image-lazy')
+    const lazyBackgrounds = querySelectorArrs('[background-image-lazy]')
     let lazyBackgroundsCount = lazyBackgrounds.length
     if (lazyBackgroundsCount > 0) {
       let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
@@ -86,7 +86,6 @@ function formatAttr(el:Element): object {
       config[key] = value
     }
   })
-  console.log(config)
   return config
 }
 

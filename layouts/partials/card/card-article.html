@@ -1,11 +1,6 @@
 <div class="article-item {{ .Params.grow }}">
-  <section class="article-card card-container large">
-    {{ with .Params.cover }}
-    <div class="card-cover background-image-lazy" data-img="{{ . }}"></div>
-    {{ else }}
-    <div class="card-cover"></div>
-    {{ end }}
-    
+  <section class="article-card card-container content-padding-large soft-size--large soft-style--box">
+    <div class="card-cover" {{ with .Params.cover -}} background-image-lazy data-img="{{ . }}" {{- end }}></div>
     <div class="card-text">
       <a href="{{ .Permalink | safeURL }}"><h4 class="card-text--title">{{ .Title }}</h4></a>
 

@@ -1,9 +1,5 @@
-<section class="post-paging--item card-container small">
-  {{ with .Params.cover }}
-  <div class="card-cover background-image-lazy" data-img="{{ . }}"></div>
-  {{ else }}
-  <div class="card-cover"></div>
-  {{ end }}
+<section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
+  <div class="card-cover" {{ with .Params.cover -}} background-image-lazy data-img="{{ . }}" {{- end }}></div>
   <div class="card-text">
     <a href="{{ .RelPermalink | safeURL }}"><h4 class="card-text--title">{{ .Title }}</h4></a>
     <p class="card-text--row">{{ .Date.Format "2006-01-02 15:04" }}</p>

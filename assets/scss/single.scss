@@ -5,14 +5,6 @@
 
   .article-content {
     padding: var(--layout-padding-x);
-
-    .markdown-body {
-      @include block-inner;
-    }
-  }
-
-  .disqus-box {
-    @include block-inner;
   }
 
   .widget-info {

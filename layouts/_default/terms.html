@@ -15,11 +15,11 @@
 {{ define "main" }}
   {{ partial "card/card-banner.html" . }}
   
-  <div class="terms-container block-container">
+  <div class="terms-container layout-block">
     <div class="terms-inner">
       {{ range .Pages }}
-        <div class="term-item padding-layout">
-          <a href="{{ .Permalink | safeURL }}" class="hover active" data-count="{{ len .Pages }}">{{ .Data.Term }}</a>
+        <div class="term-item layout-padding">
+          <a href="{{ .Permalink | safeURL }}" class="content-padding-primary soft-size--primary soft-style--box" data-count="{{ len .Pages }}">{{ .Data.Term }}</a>
         </div>
       {{ end }}
     </div>

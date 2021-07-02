@@ -66,30 +66,3 @@ b, strong {
 i, em, dfn {
   font-style: italic;
 }
-
-.text-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.center-bg {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.padding-layout {
-  padding: var(--layout-padding-x);
-}
-
-.margin-layout {
-  margin: var(--layout-padding-x);
-}
-
-.block-container {
-  width: 100%;
-  max-width: var(--layout-max-width);
-  margin-left: auto;
-  margin-right: auto;
-}

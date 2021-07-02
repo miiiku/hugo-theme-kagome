@@ -1,12 +1,8 @@
-<div class="article-section block-container padding-layout">
-  <section class="section-card card-container large">
+<div class="article-section layout-block layout-padding">
+  <section class="section-card card-container content-padding-large soft-size--large soft-style--box">
     
     {{ if eq .Kind "taxonomy" }} {{/* 分类 banner */}}
-      {{ with .Params.cover }}
-      <div class="card-cover background-image-lazy" data-img="{{ . }}"></div>
-      {{ else }}
-      <div class="card-cover"></div>
-      {{ end }}
+      <div class="card-cover" {{ with .Params.cover }} style="background-image: url({{ . }});" {{ end }}></div>
       <div class="card-text">
         <h1 class="card-text--title">{{ or .Title .Data.Plural }}</h1>
         {{ with .Params.description }}
@@ -17,11 +13,7 @@
     {{ end }}
 
     {{ if eq .Kind "term" }} {{/* 某一分类下列表 banner */}}
-      {{ with .Params.cover }}
-      <div class="card-cover background-image-lazy" data-img="{{ . }}"></div>
-      {{ else }}
-      <div class="card-cover"></div>
-      {{ end }}
+      <div class="card-cover" {{ with .Params.cover }} style="background-image: url({{ . }});" {{ end }}></div>
       <div class="card-text">
         <h1 class="card-text--title">{{ or .Title .Data.Term }}</h1>
         {{ with .Params.description }}
@@ -32,11 +24,7 @@
     {{ end }}
 
     {{ if eq .Kind "page" }} {{/* 页面 banner */}}
-      {{ with .Params.cover }}
-      <div class="card-cover background-image-lazy" data-img="{{ . }}"></div>
-      {{ else }}
-      <div class="card-cover"></div>
-      {{ end }}
+      <div class="card-cover" {{ with .Params.cover }} style="background-image: url({{ . }});" {{ end }}></div>
       <div class="card-text">
         <h1 class="card-text--title">{{ .Title }}</h1>
         
@@ -73,11 +61,7 @@
     {{ end }}
 
     {{ if eq .Kind "section" }} {{/* 区分 banner */}}
-      {{ with .Params.cover }}
-      <div class="card-cover background-image-lazy" data-img="{{ . }}"></div>
-      {{ else }}
-      <div class="card-cover"></div>
-      {{ end }}
+      <div class="card-cover" {{ with .Params.cover }} style="background-image: url({{ . }});" {{ end }}></div>
       <div class="card-text">
         {{ with .Title }} {{/* title */}}
           <h1 class="card-text--title">{{ . }}</h1>

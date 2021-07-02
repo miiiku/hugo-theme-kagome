@@ -7,14 +7,14 @@
   <main id="content">
     <!-- {{ partial "card/card-banner.html" . }} -->
 
-    <div class="single-container block-container">
+    <div class="single-container layout-block">
       <div class="article-info">
-        <div class="article-header padding-layout">
+        <div class="article-header layout-padding">
           {{ partial "card/card-cover.html" . }}
         </div>
 
         <div class="article-content">
-          <div class="markdown-body">
+          <div class="markdown-body content-padding-large soft-size--large soft-style--box">
             {{ .Content }}
           </div>
         </div>
