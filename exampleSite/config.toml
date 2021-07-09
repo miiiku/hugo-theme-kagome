@@ -13,6 +13,7 @@ hasCJKLanguage = true
   description = "梅花鹿的角叫鹿角"
   avatar = "https://s.gravatar.com/avatar/7b5a0b07a98895278cfa862b1f32ae8f?s=200&r=g&d=retro"
 
+# 菜单/导航栏
 [menu]
   # 顶部导航栏
   [[menu.main]]
@@ -78,6 +79,9 @@ hasCJKLanguage = true
   beian = ""
   # TOC目录出现字符长度限制
   toc_show_len = 300
+
+  [params.analytics]
+    baidu = ""
 
   [params.widget]
     # 相关文章推荐数量
