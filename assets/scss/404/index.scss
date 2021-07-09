@@ -1,8 +1,4 @@
-
-@import './var.scss';
-@import './theme.scss';
-@import './reset.scss';
-@import './mixin.scss';
+@import '../_base/index.scss';
 
 .container {
   display: flex;

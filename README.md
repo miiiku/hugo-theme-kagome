@@ -14,19 +14,19 @@
 
 ### Document
 
-doc list: [docs](https://kikyo.cc/docs/)
+doc list: [docs](https://kikyo.cc/posts/)
 
-- [config.toml相关配置](https://kikyo.cc/docs/202106091132/)
+- [config.toml相关配置](https://kikyo.cc/posts/202106091132/)
 
-- [Front Matter 相关参数说明](https://kikyo.cc/docs/202106180929/)
+- [Front Matter 相关参数说明](https://kikyo.cc/posts/202106180929/)
 
-- [插入公式，图片与Widget目录显示](https://kikyo.cc/docs/202105251659/)
+- [插入公式，图片与Widget目录显示](https://kikyo.cc/posts/202105251659/)
 
-- [播放音频与视频，shortcode使用说明](https://kikyo.cc/docs/202105261132/)
+- [播放音频与视频，shortcode使用说明](https://kikyo.cc/posts/202105261132/)
 
-- [i18n多语言配置](https://kikyo.cc/docs/202106221751/)
+- [i18n多语言配置](https://kikyo.cc/posts/202106221751/)
 
-- [如何丰富Banner信息](https://kikyo.cc/docs/202106230952/)
+- [如何丰富Banner信息](https://kikyo.cc/posts/202106230952/)
 
 ### Install
 

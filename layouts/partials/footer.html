@@ -60,22 +60,3 @@
     <a href="javascript:;" id="theme-auto">🤖️ {{ i18n "theme.auto" }}</a>
   </p>
 </footer>
-
-{{/* google analytics */}}
-{{- template "_internal/google_analytics.html" . -}}
-
-{{/* baidu analytics */}}
-{{ with .Site.Params.Analytics.baidu }}
-<script type="application/javascript">
-  var _hmt = _hmt || [];
-  (function() {
-    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-      return console.log("本地调试，未加载analytics代码")
-    }
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?{{ . }}";
-    var s = document.getElementsByTagName("script")[0]; 
-    s.parentNode.insertBefore(hm, s);
-  })();
-</script>
-{{ end }}

@@ -36,7 +36,7 @@
   {{ template "_internal/twitter_cards.html" . }}
 
   {{/* style */}}
-  {{ $sass := resources.Get "scss/main.scss" }}
+  {{ $sass := resources.Get "scss/index/index.scss" }}
   {{ $options := dict "targetPath" "assets/css/style.min.css" "outputStyle" "compressed" }}
   {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint "sha256" }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">

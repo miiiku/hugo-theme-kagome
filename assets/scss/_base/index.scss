@@ -1,17 +1,8 @@
-
 @import './var.scss';
 @import './theme.scss';
+@import './reset.scss';
 @import './mixin.scss';
 
-@import './reset.scss';
-@import './header.scss';
-@import './footer.scss';
-@import './card.scss';
-@import './single.scss';
-@import './page.scss';
-@import './markdown.scss';
-@import './widget.scss';
-@import './pagination.scss';
 
 body {
   background-color: var(--theme-bg-primary);
