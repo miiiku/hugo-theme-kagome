@@ -5,8 +5,8 @@
     {{ range .Site.Data.link }}
     <div class="link-item layout-padding">
       <a href="{{ .link | safeURL }}" target="_blank" rel="noopener" class="content-padding-primary soft-size--primary soft-style--box">
-        {{ if .cover }}
-        <img src="{{ .cover | safeURL }}" alt="{{ .name }}" class="soft-size--round soft-style--box">
+        {{ if .avatar }}
+        <img src="{{ .avatar | safeURL }}" alt="{{ .name }}" class="soft-size--round soft-style--box">
         {{ end }}
         <div>
           <h4 class="text-ellipsis">{{ .name }}</h4>
