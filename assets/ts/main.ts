@@ -1,11 +1,12 @@
 (function () {
   
   const currentTheme:string  = window.localStorage.getItem('theme') || ''
+
   if (currentTheme && currentTheme !== 'auto') {
     switchTheme(currentTheme)
   }
 
-  window.addEventListener('load', () => {
+  window.addEventListener('DOMContentLoaded', () => {
     /** moble click toggle menu */
     const mobileMenuBtn:Element = document.querySelector('.header-nav--btn')
     mobileMenuBtn.addEventListener('click', function () {

@@ -1,7 +1,7 @@
 <section class="post-paging--item card-container content-padding-primary soft-size--primary soft-style--box">
   <div class="card-cover" {{ with .Params.cover -}} background-image-lazy data-img="{{ . }}" {{- end }}></div>
   <div class="card-text">
-    <a href="{{ .RelPermalink | safeURL }}"><h4 class="card-text--title">{{ .Title }}</h4></a>
+    <a href="{{ .RelPermalink | safeURL }}"><h4 class="card-text--title text-ellipsis">{{ .Title }}</h4></a>
     <p class="card-text--row">{{ .Date.Format "2006-01-02 15:04" }}</p>
   </div>
 </section>

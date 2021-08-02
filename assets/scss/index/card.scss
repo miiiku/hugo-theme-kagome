@@ -22,7 +22,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 40px 38px 45px;
+      padding: var(--content-large-padding);
     }
   }
 
@@ -64,7 +64,7 @@
 
     .card-text--row {
       font-size: var(--font-common-size);
-      margin-top: 20px;
+      margin-top: var(--layout-padding-x);
     }
 
     .card-text--tag {
@@ -129,24 +129,16 @@
 
   .article-item {
     padding: var(--layout-padding-x);
-    flex: 1 1 33.33333%;
+    max-width: 100%;
+    flex: 1 0 auto;
 
     @include mq-pc {
-      min-width: 350px;
-      min-height: 330px;
+      min-width: 25%;
     }
+
     @include mq-mb {
       width: 100%;
       min-width: 230px;
-      min-height: 240px;
-    }
-
-    &.large {
-      flex: 1 1 66.66666%;
-    }
-
-    &.full {
-      flex: 1 1 100%;
     }
 
     &:nth-child(1n) .article-card .card-cover {
